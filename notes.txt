@@ -7,7 +7,7 @@
 
 
 TODO:
-floating top button
+
 contact form submission
 next previous in gallery
 click on home page image go to gallery

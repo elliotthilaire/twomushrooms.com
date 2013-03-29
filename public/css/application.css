@@ -107,6 +107,12 @@ width:auto;
   border-color:gray;
 }
 
+#link_to_top {
+    position:fixed;
+    bottom:30px;
+    left:30px;
+}
+
 /* END Gallery */
 
 .info {padding-top:10px;}
@@ -120,6 +126,8 @@ width:auto;
   top:-1000;
 }
 
+
+
 /*END About */
 
 /*BEGIN Error*/
@@ -131,28 +139,22 @@ width:auto;
 */
 /*END Error*/		
 
-
 ul.like-buttons{
 float: left;
 list-style: none;
-margin: 5px 0 20px 0;
+margin: 0px 0px 0px 0px;
 padding: 0;
-width: 100%;
 }
 
 ul.like-buttons li{
     display: block;
     float: left;
-    margin-right: 10px;
+    margin-right: 0px;
 }
 li.twitter-like{
     margin-top: 2px;
 }
 
-#link_to_top {
-    position:fixed;
-    bottom:30px;
-    left:30px;
-}
+
 
 

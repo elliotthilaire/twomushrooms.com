@@ -5,17 +5,17 @@
         <img src="<%=thumbnail_url_for(@photo.url, "940x620")%>" alt=""></img>
 
         <div class="info">
-
+<span>
         <ul class="like-buttons">
-            <li class="g-plus-one">
+           <!-- <li class="g-plus-one">
                 <g:plusone count="false"></g:plusone>
             </li>
             <li class="twitter-like">
             <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
-            </li>
+            </li> -->
             <li class="fb-like" data-href="http://<%=request.url%>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">
             </li>
-        </ul>
+        </ul></span>
 
 
           <span class="date">
@@ -26,7 +26,7 @@
     </div><!--.photo-->
 </div><!--.gallery-->
 
-<!-- Place this tag after the last +1 button tag. -->
+<!--
 <script type="text/javascript">
   (function() {
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
@@ -36,7 +36,9 @@
 </script>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-</script>  
+</script> 
+
+--> 
 
 
 <div id="fb-root"></div>
