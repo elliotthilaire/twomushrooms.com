@@ -47,8 +47,9 @@ module Sinatra
     end
 
     def self.convert(src, dest, format)
-      if (format =~ /(.*)-crop$/) 
-        if (im_version <=> [6,6,4]) >= 0
+      if (format =~ /(.*)-crop$/)
+	#if (im_version <=> [6,6,4]) >= 0 
+        if (im_version <=> [6,6,0]) >= 0
           format = "\"" + $1 + "^\"" + " -gravity center -extent " + $1
         else
           format = $1
