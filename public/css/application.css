@@ -127,18 +127,6 @@ width:auto;
 }
 
 
-
-/*END About */
-
-/*BEGIN Error*/
-/*
-.error{
-  text-align:center;
-  padding:100px;
-}
-*/
-/*END Error*/		
-
 ul.like-buttons{
 float: left;
 list-style: none;
@@ -154,6 +142,42 @@ ul.like-buttons li{
 li.twitter-like{
     margin-top: 2px;
 }
+
+#feedback {
+  margin-left:10px;
+  margin-right:10px;
+}
+
+#message {
+  width:100%;
+}
+
+.control-group {
+  position:relative;
+  margin:0px;
+  padding-top:10px;
+  left:-20px;
+
+}
+
+.pic{
+
+  margin-top:10px;
+  text-align:center;
+}
+
+/*END About */
+
+/*BEGIN Error*/
+
+.error{
+  text-align:center;
+  padding:100px;
+}
+
+/*END Error*/		
+
+
 
 
 

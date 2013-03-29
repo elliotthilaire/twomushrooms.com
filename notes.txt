@@ -8,6 +8,13 @@
 
 TODO:
 
+Critical
 contact form submission
+proof read info
+
+
+Nice to have
+google analytics
 next previous in gallery
 click on home page image go to gallery
+nicer watermark

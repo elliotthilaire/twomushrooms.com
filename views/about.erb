@@ -1,13 +1,13 @@
 <div class="about">
 	<div class="row">
-		<div class="span3">
+		<div class="span3 pic">
 			<img src="about.jpg"></img>
 		</div>
 		<div class="span6">
  			<h4>The photographer</h4>
 		 	<p>I take pictures for fun. I love to capture details that are often overlooked.</p>
 			<p>You might not guess it from some of the pictures; I hate spiders. Seeing them eye to eye creates a new perspective.</p>
-			<p>I took all of the photos here but my wife gets credit for helping too. Sometimes she holds the flash.</p>
+			<p>I took all of the photos here but my wife gets some credit too. Sometimes she holds the flash.</p>
             <br/>
             <h4>Usage</h4>
             <p>The low resolution images available on this website are licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported</a> license.</p>
@@ -15,17 +15,21 @@
             <p>If you would like to use images for any other reason or would like a higher resolution copy, please get in touch.</p>
             <br />
             <h4>Website</h4>
-            <p>Web development and hosting is another hobby of mine. This website is hand crafted and self hosted.</p>
+            <p>Web development and hosting something else I enjoy. This website is hand crafted and self hosted.</p>
  		</div>
  	</div><!--.row-->
  </div><!--.about-->
 
+<br />
 <hr />
-    <div class="row">
-    <div class="offset2 span6">
-<form class="form-horizontal" action="javascript:void(0);">
+
+<div class="row contact">
+    <h4 class="offset3 span6">Contact</h4>
+
+    <div class="offset1 span8">
+<form id="contact" class="form-horizontal" method="post" action="/contact">
 	<!--<legend>Contact</legend>-->
-    <h4>Contact</h4>
+
    <!-- <div id="anti-cap" class="control-group">
         <div class="controls">
             <input type="text" id="text">
@@ -34,7 +38,7 @@
     <div class="control-group">
     	<label class="control-label" for="email">Email</label>
     	<div class="controls">
-    		<input type="text" id="email" name="email" placeholder="Email Address">
+    		<input type="text" id="email" name="email" placeholder="Your Email Address">
     	</div>
     </div>
     <div class="control-group">
@@ -46,19 +50,29 @@
     <div class="control-group">
     	<div class="controls">
     	<button id="submit" class="btn">Send</button>
+            <span id="feedback"></span>
     	</div>
+
     </div>
  </form>
 </div>
-</div>
 
+</div><!--.contact-->
 
-<script>
-jQuery(document).ready(function($) {
-  $("#submit").click(function() {  
-    // validate and process form here  
+<script src="http://malsup.github.com/jquery.form.js"></script> 
+<script> 
+        // wait for the DOM to be loaded 
+        $(document).ready(function() { 
 
-//    alert("thanks");
-  });  
-}); 
-</script>
+            // bind 'myForm' and provide a simple callback function 
+            $('#submit').click (function() {
+                $('#feedback').text("Sending message");
+            });
+            
+            $('#contact').ajaxForm(function() { 
+                $('#feedback').text("Thank you. Your message has been sent.");
+                $('#message').val("");
+                $('#email').val(""); 
+            }); 
+        }); 
+</script> 
