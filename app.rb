@@ -6,7 +6,7 @@ require 'sinatra'
 #require 'moredown'
 #require 'maruku'
 require 'haml'
-#require 'json'
+require 'json'
 require './sinatra-thumbnails/lib/sinatra/thumbnails.rb'
 require 'active_support/core_ext/integer/inflections'
 
