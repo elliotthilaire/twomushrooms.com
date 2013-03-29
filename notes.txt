@@ -4,3 +4,12 @@
 <!--jquery imagefit -->
 <!--imgLiquid -->
 /*http://spigotdesign.com/2011/11/crop-any-size-image-with-css/ */
+
+
+TODO:
+
+elliott hilaire -> home
+contact form submission
+social media buttons
+next previous in gallery
+click on home page image go to gallery
