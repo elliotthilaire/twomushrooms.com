@@ -23,7 +23,7 @@
 <hr />
     <div class="row">
     <div class="offset2 span6">
-<form class="form-horizontal" action="/contact" method="post">
+<form class="form-horizontal" action="javascript:void(0);">
 	<!--<legend>Contact</legend>-->
     <h4>Contact</h4>
    <!-- <div id="anti-cap" class="control-group">
@@ -45,7 +45,7 @@
     </div>
     <div class="control-group">
     	<div class="controls">
-    	<button type="submit" class="btn">Send</button>
+    	<button id="submit" class="btn">Send</button>
     	</div>
     </div>
  </form>
@@ -54,5 +54,11 @@
 
 
 <script>
+jQuery(document).ready(function($) {
+  $("#submit").click(function() {  
+    // validate and process form here  
 
+//    alert("thanks");
+  });  
+}); 
 </script>

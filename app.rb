@@ -78,12 +78,8 @@ post '/contact' do
         :authentication       => :plain, 
         :domain               => 'localhost.localdomain'
       })
-    redirect '/success' 
 end
 
-get "/success" do
-  "done"
-end
 
 not_found do
   erb :not_found

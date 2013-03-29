@@ -8,7 +8,6 @@
 
 TODO:
 
-elliott hilaire -> home
 contact form submission
 social media buttons
 next previous in gallery
