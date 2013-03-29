@@ -2,23 +2,21 @@ require "rubygems"
 require "bundler"
 #Bundler.require
 
-
 require 'sinatra'
-require 'moredown'
-require 'maruku'
+#require 'moredown'
+#require 'maruku'
 require 'haml'
-require 'json'
+#require 'json'
 require './sinatra-thumbnails/lib/sinatra/thumbnails.rb'
 require 'active_support/core_ext/integer/inflections'
 
-require 'moredown'
 require 'pony'
 
 load 'models.rb'
 load 'helpers.rb'
 
 set :logging, true
-#set :dump_errors, true
+set :dump_errors, true
 
 
 get '/' do
@@ -87,7 +85,6 @@ get "/success" do
   "done"
 end
 
-
 not_found do
   erb :not_found
 end
@@ -112,4 +109,3 @@ end
 # send_file file
 #end
  
-
