@@ -16,6 +16,12 @@
     var curr = 13;   
     var numberOfBoxes = jQuery(".box").size();
 
+    // preload images
+    jQuery.each(thumbnails, loadImage);
+    function loadImage(key,value){
+      jQuery.ajax(value.url);
+    }
+
 
     // create random ordered indexes
     var list = [];
