@@ -1,0 +1,135 @@
+body {
+  background-image: none;
+  background-repeat: none;
+  background-color: #121417;
+}
+
+.container{
+  padding-bottom:60px;
+  padding-left:0px;
+}
+
+/* BEGIN navbar overrides */
+.navbar {
+  margin-top:0px;
+  margin-bottom:0px;
+  margin-left:0px;
+  margin-right:0px;
+}
+
+.navbar > .navbar-inner {
+  padding:0px;
+  margin:0px;
+  background:none;
+  border:none;
+  box-shadow:none;
+}
+
+.navbar > .navbar-inner > .nav {float:right;}
+.nav > li > a:hover {background-color: none;}
+
+.brand{
+  text-shadow: 4px 4px 4px #aaa; 
+}
+
+/* remove outline for clicked on links*/
+a:focus
+{
+  outline:none;
+}
+
+/* remove blue underline*/
+.navbar .nav > li > a:hover, .navbar .nav > .active > a, .navbar .nav > .active > a:hover
+{
+  border:none;
+}
+
+/* make background of active transparent*/
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus
+{
+    font-weight:bold;
+  background:transparent;
+}
+
+/* END navbar overrides */
+
+
+/* BEGIN Index Page */
+
+
+.top {
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:1;
+}
+
+.bottom {}
+
+.box {
+  position:relative;
+  float:left;
+  margin:1px;
+  }
+
+/* END Index Page*/
+
+/* BEGIN Gallery */
+.gallery {
+  text-align:center;
+}
+
+.photo {
+  margin-top:50px;
+  margin-bottom:150px;
+
+}
+
+.inline-block {
+display:inline-block;
+width:auto;
+}
+
+
+
+.photo img {
+  border:solid;
+  border-color:white;
+  border-width:1px;
+}
+
+.photo > .text > .title {margin-left:0px;}
+.photo > .text > .date {margin-right:0px;}
+.fancybox > img {
+
+  border:solid;
+  border-width:1px;
+  border-color:gray;
+}
+
+/* END Gallery */
+
+.info {padding-top:10px;}
+.date {float:right;}
+.media-buttons{float:left;}
+
+/*BEGIN About */
+#anti-cap {
+  position:absolute;
+  left:-1000;
+  top:-1000;
+}
+
+/*END About */
+
+/*BEGIN Error*/
+/*
+.error{
+  text-align:center;
+  padding:100px;
+}
+*/
+/*END Error*/		
+
+
+

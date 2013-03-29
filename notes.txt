@@ -1,0 +1,6 @@
+<!-- jquery fakecrop -->
+<!-- jquery nailthumb -->
+<!-- yox view-->
+<!--jquery imagefit -->
+<!--imgLiquid -->
+/*http://spigotdesign.com/2011/11/crop-any-size-image-with-css/ */

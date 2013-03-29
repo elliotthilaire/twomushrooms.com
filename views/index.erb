@@ -1,0 +1,65 @@
+
+<% @photos.each do |photo| %>
+  <div class="box">
+        <img class="bottom" src="<%=thumbnail_url_for(photo.url, "233x170-crop")%>"> </img>
+  </div>
+<% end %>
+
+
+
+
+	
+<script>
+	jQuery(document).ready(function($) {
+		
+    var thumbnails = <%= @thumbnails %>
+    var curr = 13;   
+    var numberOfBoxes = jQuery(".box").size();
+
+
+    // create random ordered indexes
+    var list = [];
+    for (var i = 0; i < numberOfBoxes; i++) {
+        list.push(i);
+    }
+    function randOrd(){
+      return (Math.round(Math.random())-0.5);
+    }
+    list.sort(randOrd);
+
+    // function for getting the next random image
+    var i = 1;
+    function nextImage(){
+      i = (i + 1) % numberOfBoxes;
+      return list[i];
+    }
+
+    timer = 3000;
+     setTimeout(swapImage,timer);
+
+      // get a random url and swap the image
+      function swapImage(){
+        curr = (curr + 1) % thumbnails.length;
+        url = thumbnails[curr].url;
+
+        //pick a random box
+        var random = Math.round(Math.random()*numberOfBoxes);
+        randomBox = jQuery(".box").eq(nextImage());
+         
+        html = '<img class="top" src="'+url+'"></img>';       
+        $(html).hide().appendTo(randomBox);
+        randomBox.find(".top").fadeIn(2000,removeOldImage);                            
+
+        // remove the old image
+        function removeOldImage(){
+          randomBox.find(".bottom").remove();
+          randomBox.find(".top").attr('class', 'bottom');
+        }
+        //recurse into this function to do it all again
+        setTimeout(swapImage, timer);
+
+      }
+      
+    });
+
+</script>
