@@ -149,4 +149,10 @@ li.twitter-like{
     margin-top: 2px;
 }
 
+#link_to_top {
+    position:fixed;
+    bottom:30px;
+    left:30px;
+}
+
 
