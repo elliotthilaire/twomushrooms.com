@@ -1,7 +1,9 @@
 
 <% @photos.each do |photo| %>
   <div class="box">
+    <a href="gallery/<%=photo.name%>" >
         <img class="bottom" src="<%=thumbnail_url_for(photo.url, "233x170-crop")%>"> </img>
+    </a>
   </div>
 <% end %>
 
@@ -47,12 +49,13 @@
       function swapImage(){
         curr = (curr + 1) % thumbnails.length;
         url = thumbnails[curr].url;
+        stub = thumbnails[curr].stub;
 
         //pick a random box
         var random = Math.round(Math.random()*numberOfBoxes);
         randomBox = jQuery(".box").eq(nextImage());
          
-        html = '<img class="top" src="'+url+'"></img>';       
+        html = '<a class="top" href="gallery/'+stub+'"><img src="'+url+'"></img></a>';       
         $(html).hide().appendTo(randomBox);
         randomBox.find(".top").fadeIn(2000,removeOldImage);                            
 

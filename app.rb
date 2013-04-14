@@ -26,7 +26,7 @@ get '/' do
   photos = Photo.all.shuffle
 
   photos.each do |photo|
-    thumbnails << {:url => thumbnail_url_for(photo.url, "233x170-crop")}
+    thumbnails << {:url => thumbnail_url_for(photo.url, "233x170-crop"), :stub => photo.name}
   end
   
   @thumbnails = thumbnails.to_json
