@@ -1,11 +1,17 @@
 
 <% @photos.each do |photo| %>
-  <div class="box">
+  <div class="box col-sm-4 col-md-3">
     <a href="gallery/<%=photo.name%>" >
-        <img class="bottom" src="<%=thumbnail_url_for(photo.url, "233x170-crop")%>"> </img>
+        <img class="bottom image-responsive" src="<%=thumbnail_url_for(photo.url, "300x200-crop")%>"> </img>
     </a>
   </div>
+<!--
+  <div class="col-md-3">
+    <img src="holder.js/233x170">
+  </div>
+-->
 <% end %>
+
 
 
 

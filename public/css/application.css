@@ -1,38 +1,28 @@
+
+
 body {
-  background-image: none;
-  background-repeat: none;
   /*background-color: #121417; */
-  background-image: url(/textures/binding_dark/binding_dark.png);
+  background-image: url(/textures/dark_dotted2/dark_dotted2.png);
   background-repeat:repeat;
 }
 
-.container{
-  padding-bottom:60px;
-  padding-left:0px;
-}
+
 
 /* BEGIN navbar overrides */
-.navbar {
-  margin-top:0px;
-  margin-bottom:0px;
-  margin-left:0px;
-  margin-right:0px;
-}
 
-.navbar > .navbar-inner {
-  padding:0px;
-  margin:0px;
+.navbar {
+
+
   background:none;
   border:none;
   box-shadow:none;
 }
 
-.navbar > .navbar-inner > .nav {float:right;}
-.nav > li > a:hover {background-color: none;}
 
-.brand{
-  text-shadow: 4px 4px 4px #aaa; 
-}
+
+/* END navbar overrides */
+
+
 
 /* remove outline for clicked on links*/
 a:focus
@@ -40,16 +30,17 @@ a:focus
   outline:none;
 }
 
-/* remove blue underline*/
+/* remove blue underline
 .navbar .nav > li > a:hover, .navbar .nav > .active > a, .navbar .nav > .active > a:hover
 {
   border:none;
 }
+*/
 
-/* make background of active transparent*/
+/* make background of active transparent */
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus
 {
-    font-weight:bold;
+  font-weight:bold;
   background:transparent;
 }
 
@@ -68,6 +59,7 @@ a:focus
 
 .bottom {}
 
+
 .box {
   position:relative;
   float:left;
@@ -77,20 +69,7 @@ a:focus
 /* END Index Page*/
 
 /* BEGIN Gallery */
-.gallery {
-  text-align:center;
-}
 
-.photo {
-  margin-top:50px;
-  margin-bottom:150px;
-
-}
-
-.inline-block {
-display:inline-block;
-width:auto;
-}
 
 
 
@@ -98,7 +77,11 @@ width:auto;
   border:solid;
   border-color:white;
   border-width:1px;
+
+
 }
+
+
 
 .photo > .text > .title {margin-left:0px;}
 .photo > .text > .date {margin-right:0px;}
@@ -163,7 +146,6 @@ li.twitter-like{
 }
 
 .pic{
-
   margin-top:10px;
   text-align:center;
 }
@@ -179,8 +161,19 @@ li.twitter-like{
 
 /*END Error*/		
 
+html,body{height:100%;}
 
+.container {
+    height:100%;
+}
 
+.fill{
+    max-width:calc(100% - 60px);
+    max-height:100%;
+}
 
-
+.photo {
+  text-align:center;
+height:calc(100% - 120px);
+}
 

@@ -3,20 +3,31 @@
   <head>
     <title>Photography by Elliott Hilaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/bootstrap/cyborg/bootstrap.min.css"  media="screen">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/application.css"  media="screen">
     <!--
+        <link rel="stylesheet" href="/bootstrap/cyborg/bootstrap.min.css"  media="screen">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fondamento"  type="text/css">
     <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
     <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
     <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
     -->
+
+
+
+<!-- Optional theme -->
+
+
+<!-- Latest compiled and minified JavaScript -->
+
+
   </head>
   <body>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <!--
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
     <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
     <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
@@ -26,16 +37,25 @@
     <div id="top"></div>
     <div class="container">
       <!-- nagivation menu -->
-      <div class="navbar">
-        <div class="navbar-inner">
-          <a href="/" class="brand">Elliott Hilaire</a>
-          <ul class="nav">
-            <li class="<%= @selected == :home ? "active" : nil%>"><a href="/">Home</a></li>
-            <li class="<%= @selected == :gallery ? "active" : nil%>"><a href="/gallery">Gallery</a></li>
-            <li class="<%= @selected == :about ? "active" : nil%>"><a href="/about">About</a></li>
-          </ul><!--.nav-->
-        </div><!--.navbar-inner-->
-      </div><!--.navbar-->
+      <nav class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Elliott Hilaire</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="<%= @selected == :home ? "active" : nil%>"><a href="/">Home</a></li>
+              <li class="<%= @selected == :gallery ? "active" : nil%>"><a href="/gallery">Gallery</a></li>
+              <li class="<%= @selected == :about ? "active" : nil%>"><a href="/about">About</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+      </nav>
 
       <%= yield %>
 
