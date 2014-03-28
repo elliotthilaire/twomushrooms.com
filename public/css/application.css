@@ -1,7 +1,9 @@
 body {
   background-image: none;
   background-repeat: none;
-  background-color: #121417;
+  /*background-color: #121417; */
+  background-image: url(/textures/binding_dark/binding_dark.png);
+  background-repeat:repeat;
 }
 
 .container{
