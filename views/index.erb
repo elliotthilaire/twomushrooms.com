@@ -1,16 +1,19 @@
 
+<div class="col-sm-12">
 <% @photos.each do |photo| %>
-  <div class="box col-sm-4 col-md-3">
-    <a href="gallery/<%=photo.name%>" >
-        <img class="bottom image-responsive" src="<%=thumbnail_url_for(photo.url, "300x200-crop")%>"> </img>
+  <div class="box">
+    <a class="bottom" href="gallery/<%=photo.name%>" >
+        <img src="<%=thumbnail_url_for(photo.url, "300x200-crop")%>" />
     </a>
   </div>
+
 <!--
   <div class="col-md-3">
     <img src="holder.js/233x170">
   </div>
 -->
 <% end %>
+</div>
 
 
 
@@ -61,7 +64,7 @@
         var random = Math.round(Math.random()*numberOfBoxes);
         randomBox = jQuery(".box").eq(nextImage());
          
-        html = '<a class="top" href="gallery/'+stub+'"><img src="'+url+'"></img></a>';       
+        html = '<a class="top" href="gallery/'+stub+'"><img src="'+url+'"/></a>';       
         $(html).hide().appendTo(randomBox);
         randomBox.find(".top").fadeIn(2000,removeOldImage);                            
 
