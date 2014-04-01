@@ -1,14 +1,19 @@
 
 <div class="gallery">
   <% @photos.each do |photo| %>
-      <div class="photo">
-	        <a href="gallery/<%=photo.name%>" >
-	        	<img class="fill" src="<%=thumbnail_url_for(photo.url, "800x600")%>" alt="<%= photo.caption %>" />
+      <div class="photo col-xs-4">
+	        <a class="fancybox" rel="gallery" href="<%=thumbnail_url_for(photo.url, "1200x900")%>" >
+	        	<img src="<%=thumbnail_url_for(photo.url, "300x300")%>" alt="<%= photo.caption %>" />
 	      	</a>
 	      	<div class="info"></div>
-    </div><!--col-md-4-->
+    </div><!--col-xs-4-->
   <% end %>
 </div>
 
 <a id="link_to_top" href="#top">Back to top</a>
 
+<script>
+    $(document).ready(function() {
+        $('.fancybox').fancybox();
+    });
+</script>
