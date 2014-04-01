@@ -1,20 +1,14 @@
 
-
-  <div class="row">
-
+<div class="gallery">
   <% @photos.each do |photo| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-	        <a class="thumbnail" href="gallery/<%=photo.name%>" >
-	        	<img src="<%=thumbnail_url_for(photo.url, "1200x900")%>" alt="<%= photo.caption %>"></img>
+      <div class="photo">
+	        <a href="gallery/<%=photo.name%>" >
+	        	<img class="fill" src="<%=thumbnail_url_for(photo.url, "800x600")%>" alt="<%= photo.caption %>" />
 	      	</a>
 	      	<div class="info"></div>
     </div><!--col-md-4-->
   <% end %>
-
-
 </div>
 
-
-</div>
 <a id="link_to_top" href="#top">Back to top</a>
 

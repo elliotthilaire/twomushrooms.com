@@ -1,63 +1,50 @@
+
 <div class="about">
-	<div class="row">
-		<div class="col-md-3 pic">
-			<img src="about.jpg"></img>
+    <div class="row">
+		<div class="col-xs-3 col-sm-3 pic">
+			<img src="about.jpg" />
 		</div>
-		<div class="col-md-6">
- 			<h4>The photographer</h4>
-		 	<p>I take pictures for fun. I love to capture details that are often overlooked.</p>
-			<p>You might not guess it from some of the pictures; I hate spiders. Seeing them eye to eye creates a new perspective.</p>
-			<p>I took all of the photos here but my wife gets some credit too. Sometimes she holds the flash.</p>
+		<div class="col-xs-12 col-sm-6">
+ 			<h4>The Photographer</h4>
+		 	<p>I take pictures for fun. I try to focus on details that are often overlooked.
+			<p>Everybody has their irrational fears; one of mine is spiders. Seeing them through the lens creates a new perspective.</p>
             <br/>
-            <h4>Usage</h4>
-            <p>The low resolution images available on this website are licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported</a> license.</p>
-            <p>I value your feedback. If you see worth downloading, please tell me what you like and why; then take a copy for personal use.</p>
-            <p>If you would like to use images for any other reason or would like a higher resolution copy, please get in touch.</p>
+            <h4>Copyright</h4>
+            <p>The photos here are available under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution, Non Commericial, Share Alike</a> license.</p>
             <br />
-            <h4>Website</h4>
-            <p>Web development and hosting something else I enjoy. This website is hand crafted and self hosted.</p>
- 		</div>
- 	</div><!--.row-->
- </div><!--.about-->
+            <h4>Contact</h4>
+            <p>If you would like to use any of the photos commercially, or would like a higher resolution, please get in touch.</p>
+            <form id="contact" class="form-horizontal" method="post" action="/contact">
+        	   <!--<legend>Contact</legend>-->
 
-<br />
-<hr />
-
-<div class="row contact">
-    <h4 class="col-md-offset-3 col-md-6">Contact</h4>
-
-    <div class="col-md-offset-3  col-md-8">
-<form id="contact" class="form-horizontal" method="post" action="/contact">
-	<!--<legend>Contact</legend>-->
-
-   <!-- <div id="anti-cap" class="control-group">
-        <div class="controls">
-            <input type="text" id="text">
+               <!-- <div id="anti-cap" class="control-group">
+                    <div class="controls">
+                        <input type="text" id="text">
+                    </div>
+                </div> -->
+                <div class="control-group">
+                	<!--<label class="control-label" for="email">Email</label>-->
+                	<div class="controls">
+                		<input type="text" id="email" name="email" placeholder="your email address">
+                	</div>
+                </div>
+                <div class="control-group">
+                	<!--<label class="control-label" for="message">Message</label>-->
+                	<div class="controls">
+                		<textarea id="message" name="message" placeholder="write me a message..." rows="6" cols="20" ></textarea>
+                	</div>
+                </div>
+                <div class="control-group">
+                	<div class="controls">
+                	<button id="submit" class="btn">Send</button>
+                        <span id="feedback"></span>
+                	</div>
+                </div>
+            </form>
         </div>
-    </div> -->
-    <div class="control-group">
-    	<label class="control-label" for="email">Email</label>
-    	<div class="controls">
-    		<input type="text" id="email" name="email" placeholder="Your Email Address">
-    	</div>
-    </div>
-    <div class="control-group">
-    	<label class="control-label" for="message">Message</label>
-    	<div class="controls">
-    		<textarea id="message" name="message" placeholder="Message" rows="6" cols="20" ></textarea>
-    	</div>
-    </div>
-    <div class="control-group">
-    	<div class="controls">
-    	<button id="submit" class="btn">Send</button>
-            <span id="feedback"></span>
-    	</div>
+    </div><!--.row-->
 
-    </div>
- </form>
-</div>
-
-</div><!--.contact-->
+</div><!--.about-->
 
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script> 

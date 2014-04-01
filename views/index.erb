@@ -1,23 +1,14 @@
-
-<div class="col-sm-12">
-<% @photos.each do |photo| %>
-  <div class="box">
-    <a class="bottom" href="gallery/<%=photo.name%>" >
-        <img src="<%=thumbnail_url_for(photo.url, "300x200-crop")%>" />
-    </a>
+<div class="row">
+  <div class="col-sm-12">
+  <% @photos.each do |photo| %>
+    <div class="box">
+      <a class="bottom" href="gallery/<%=photo.name%>" >
+          <img src="<%=thumbnail_url_for(photo.url, "300x200-crop")%>" />
+      </a>
+    </div>
+  <% end %>
   </div>
-
-<!--
-  <div class="col-md-3">
-    <img src="holder.js/233x170">
-  </div>
--->
-<% end %>
 </div>
-
-
-
-
 
 	
 <script>

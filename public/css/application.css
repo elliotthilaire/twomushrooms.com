@@ -6,19 +6,14 @@ body {
   background-repeat:repeat;
 }
 
-
-
 /* BEGIN navbar overrides */
 
 .navbar {
-
-
   background:none;
   border:none;
   box-shadow:none;
+  padding-top:15px;
 }
-
-
 
 /* END navbar overrides */
 
@@ -140,22 +135,8 @@ li.twitter-like{
     margin-top: 2px;
 }
 
-#feedback {
-  margin-left:10px;
-  margin-right:10px;
-}
 
-#message {
-  width:100%;
-}
 
-.control-group {
-  position:relative;
-  margin:0px;
-  padding-top:10px;
-  left:-20px;
-
-}
 
 .pic{
   margin-top:10px;
@@ -189,5 +170,34 @@ html,body{height:100%;}
 height:calc(100% - 120px);
 }
 
+.gallery img {
+  width:70%;
+  height:70%;
+}
 
+.about img {
+  width:100%;
+}
 
+.about p {
+  font-size:1.2em;
+  color:hsl(0,0%,70%);
+}
+
+.about h4 {
+  color:hsl(0,0%,50%);
+}
+
+.about .control-label {
+  color:hsl(0,0%,70%);
+
+}
+
+.about .control-group {
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.about #message {
+  width:100%;
+}
