@@ -3,8 +3,6 @@ require "bundler"
 #Bundler.require
 
 require 'sinatra'
-#require 'moredown'
-#require 'maruku'
 require 'haml'
 require 'json'
 require './sinatra-thumbnails/lib/sinatra/thumbnails.rb'
@@ -41,15 +39,15 @@ get "/gallery" do
   erb :gallery
 end
 
-get "/gallery/:photo" do
-  @selected = :gallery
-  @photo = Photo.find(params[:photo]) || raise(Sinatra::NotFound)
-  erb :photo
-end
-
 get "/about" do
  @selected = :about
  erb :about
+end
+
+get "/gallery/:photo" do
+  @selected = :gallery
+  @photo = Photo.find(params[:photo]) || raise(Sinatra::NotFound)
+  erb :photo_xhr, :layout => !request.xhr?
 end
 
 get "/gallery/" do
@@ -80,6 +78,11 @@ post '/contact' do
       })
 end
 
+
+get "/:photo" do
+  @photo = Photo.find(params[:photo]) || raise(Sinatra::NotFound)
+  erb :photo
+end
 
 not_found do
   erb :not_found

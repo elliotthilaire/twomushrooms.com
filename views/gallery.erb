@@ -2,7 +2,8 @@
 <div class="gallery">
   <% @photos.each do |photo| %>
       <div class="photo col-xs-4">
-	        <a class="fancybox" rel="gallery" href="<%=thumbnail_url_for(photo.url, "1200x900")%>" >
+	        <a class="fancybox"  rel="gallery" href="<%=thumbnail_url_for(photo.url, "1200x900")%>" >
+	    	<!--<a class="fancybox fancybox.ajax"  rel="gallery" href="/gallery/<%= photo.name%>" >-->
 	        	<img src="<%=thumbnail_url_for(photo.url, "300x300")%>" alt="<%= photo.caption %>" />
 	      	</a>
 	      	<div class="info"></div>
@@ -13,7 +14,16 @@
 <a id="link_to_top" href="#top">Back to top</a>
 
 <script>
-    $(document).ready(function() {
-        $('.fancybox').fancybox();
+  $(document).ready(function() {
+    $(".fancybox").fancybox({
+      prevEffect  : 'none',
+      nextEffect  : 'none',
+      padding : 1,
+      helpers : { 
+        overlay: {
+          css: {'background': 'hsla(0,0%,0%,0.8)'} 
+        } // overlay 
+      } // helpers
     });
+  });
 </script>
