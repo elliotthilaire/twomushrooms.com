@@ -65,17 +65,18 @@ post '/contact' do
       :to => 'elliott.hilaire@gmail.com',
       :subject => "[Photography] #{params[:email]}",
       :body => params[:message],
-      :port => '587',
-      :via => :smtp,
-      :via_options => { 
-        :address              => 'smtp.gmail.com', 
-        :port                 => '587', 
-        :enable_starttls_auto => true, 
-        :user_name            => 'smtp.elliott.hilaire@gmail.com', 
-        :password             => 'fingerbuns', 
-        :authentication       => :plain, 
-        :domain               => 'localhost.localdomain'
-      })
+#      :port => '587',
+#      :via => :smtp,
+#      :via_options => { 
+#        :address              => 'smtp.gmail.com', 
+#        :port                 => '587', 
+#        :enable_starttls_auto => true, 
+#        :user_name            => 'smtp.elliott.hilaire@gmail.com', 
+#        :password             => 'fingerbuns', 
+#        :authentication       => :plain, 
+#        :domain               => 'localhost.localdomain'
+#      }
+)
 end
 
 
