@@ -47,7 +47,7 @@ end
 get "/gallery/:photo" do
   @selected = :gallery
   @photo = Photo.find(params[:photo]) || raise(Sinatra::NotFound)
-  erb :photo_xhr, :layout => !request.xhr?
+  erb :photo
 end
 
 get "/gallery/" do

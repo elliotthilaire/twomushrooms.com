@@ -87,11 +87,7 @@ a:focus { /* remove outline for clicked on links */
   max-width:100%;
   max-height: 100%;
 }
-.gallery #link_to_top {
-  position:fixed;
-  bottom:30px;
-  left:30px;
-}
+
 
 /* About page */
 .about #anti-cap {
@@ -129,6 +125,12 @@ a:focus { /* remove outline for clicked on links */
     max-height:100%;
 }
 
+
+#link_to_top {
+  position:fixed;
+  bottom:30px;
+  left:30px;
+}
 
 .xhr-fill{
     max-height:100%;
