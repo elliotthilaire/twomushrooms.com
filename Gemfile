@@ -13,4 +13,7 @@ gem 'activesupport'
 gem 'exifr'
 gem 'ruby-gmail'
 gem 'pony'
-gem 'guard-shotgun'
+
+group :development do
+  gem 'guard-shotgun'
+end
