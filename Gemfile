@@ -15,5 +15,10 @@ gem 'ruby-gmail'
 gem 'pony'
 
 group :development do
+  gem 'guard'
+  gem 'rb-fsevent'
   gem 'guard-shotgun'
+  gem 'guard-livereload', require: false
+  gem 'thin'
+  gem 'shotgun'
 end

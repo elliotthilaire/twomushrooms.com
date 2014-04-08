@@ -1,6 +1,5 @@
-require "rubygems"
-require "bundler"
-#Bundler.require
+require 'rubygems'
+require 'bundler/setup'
 
 require 'sinatra'
 require 'haml'
