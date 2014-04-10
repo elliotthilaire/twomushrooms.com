@@ -20,3 +20,9 @@ guard 'livereload' do
   # Rails Assets Pipeline
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html))).*}) { |m| "/assets/#{m[3]}" }
 end
+
+#guard 'shotgun', :server => 'thin' do
+#  watch %r{^(app|lib)/.*\.rb}
+#  watch 'config.ru'
+#end
+
