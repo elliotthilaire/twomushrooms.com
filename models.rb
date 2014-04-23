@@ -20,7 +20,7 @@ attr_accessor :name, :filename, :url, :date_taken, :title, :mtime, :id, :caption
         @url = File.join(IMAGEPATH, @filename)
         @mtime = File.mtime(@url)
         @date_taken = EXIFR::JPEG.new(@url).date_time_original
-        @caption = "Photo of #{@name.gsub('-', ' ')} taken by Elliott Hilaire"
+        @caption = "Photo of #{@name.gsub('-', ' ')}"
   
   
   end

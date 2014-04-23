@@ -2,9 +2,11 @@
 <div class="gallery">
   <% @photos.each do |photo| %>
       <div class="photo col-xs-4">
-	      <a title=" " class="fancybox"  rel="gallery" href="<%=thumbnail_url_for(photo.url, "1200x900")%>" >
+
+	      <a class="fancybox"  rel="gallery" href="<%=thumbnail_url_for(photo.url, "1200x900")%>" >
 	        	<img src="<%=thumbnail_url_for(photo.url, "300x300")%>" alt="<%= photo.caption %>" />
 	      </a>
+
     </div><!--col-xs-4-->
   <% end %>
 </div>
@@ -13,38 +15,17 @@
 
 <script>
   $(document).ready(function() {
-    $(".fancybox")
-    .attr('rel', 'gallery')
-    .fancybox({
-        padding : 1,
-        helpers : { 
-          overlay: {
-            css: {'background': 'hsla(0,0%,0%,0.8)'} 
-          }, // overlay
-          title : {
-            type: 'inside'
-          } // title 
-        }, // helpers
-        beforeShow: function () {
-            if (this.title) {
-                // New line
-                //this.title += '<br />';
-                
-                // Add tweet button
-                this.title += '<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="' + this.href + '">Tweet</a> ';
-                
-                // Add FaceBook like button
-                this.title += '<iframe src="//www.facebook.com/plugins/like.php?href=' + this.href + '&amp;layout=button_count&amp;show_faces=true&amp;width=500&amp;action=like&amp;font&amp;colorscheme=light&amp;height=23" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:23px;" allowTransparency="true"></iframe>';
-            }
-        },
-        afterShow: function() {
-            // Render tweet button
-            twttr.widgets.load();
-        }
-  
+    $(".fancybox").fancybox({
+      prevEffect  : 'none',
+      nextEffect  : 'none',
+      padding : 1,
+      helpers : { 
+        overlay: {
+          css: {'background': 'hsla(0,0%,0%,0.8)'} 
+        } // overlay 
+      } // helpers
     });
   });
-
 </script>
 
 

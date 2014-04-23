@@ -67,9 +67,9 @@ module Sinatra
         return
       end 
 
-      if pixels.to_i >= 40000
+      if pixels.to_i > 90000
         #add watermark
-        command = "#{Sinatra::Thumbnails.settings.convert_executable} \"#{src}\" \"./#{Sinatra::Thumbnails.settings.watermark}\" -gravity southwest -composite -define jpeg:size=1200x1200  -thumbnail #{format} \"#{dest}\""
+        command = "#{Sinatra::Thumbnails.settings.convert_executable} \"#{src}\" \"./#{Sinatra::Thumbnails.settings.watermark}\" -gravity southeast -composite -define jpeg:size=1200x1200  -thumbnail #{format} \"#{dest}\""
       else
         #dont for small images
         command = "#{Sinatra::Thumbnails.settings.convert_executable} -define jpeg:size=1200x1200 \"#{src}\" -thumbnail #{format} \"#{dest}\""

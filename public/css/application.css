@@ -1,7 +1,7 @@
 
 
 /* global */
-html,body{
+html, body{
   height:100%;
 }
 body {
@@ -51,16 +51,39 @@ a:focus { /* remove outline for clicked on links */
 .box .bottom {}
 
 /* photo page */
-.photo img {
-  border:solid;
-  border-color:white;
-  border-width:0px;
+.vertical-container {
+  display: -webkit-flex;
+  display: flex;
+  height:100%;
 }
-.photo .info { padding-top:10px; }
-.photo .date { float:right; }
-.photo .media-buttons{ float:left; }
-.photo > .text > .title { margin-left:0px; }
-.photo > .text > .date { margin-right:0px; }
+.vertically-centered {
+    margin: auto;
+    margin-top:0px;
+    max-height:100%;
+    text-align:center;
+}
+
+.image-box img {
+    max-width:100%;
+    max-height:100%;
+}
+
+.image-box .share-buttons {
+position:relative;
+float:right;
+}
+
+.image-box .info {text-align:left;
+  font-size:2em;
+font-style:bold;
+color:#555;
+
+
+}
+
+.share-buttons {padding-top:10px;}
+
+
 
 /* error page */
 .error{
@@ -82,11 +105,13 @@ a:focus { /* remove outline for clicked on links */
   height: 100%;
   position: absolute;
   left:0;
+
 }
 .gallery .photo a img {
   max-width:100%;
   max-height: 100%;
 }
+
 
 
 /* About page */
