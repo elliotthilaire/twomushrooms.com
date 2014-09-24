@@ -17,6 +17,9 @@ set :dump_errors, true
 
 
 get '/' do
+
+  cache_control :no_store 
+
   @selected = :home
 
   thumbnails = []
