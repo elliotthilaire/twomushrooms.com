@@ -15,7 +15,6 @@ load 'helpers.rb'
 set :logging, true
 set :dump_errors, true
 
-
 get '/' do
 
   cache_control :no_store 
