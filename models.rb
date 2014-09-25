@@ -36,8 +36,7 @@ class Photo
   def <=> other_photo
     date_taken <=> other_photo.date_taken
   end
-
-
+  
   def self.prepare
     path = File.join(IMAGEPATH,"*.{jpg}")
     files = Dir.glob(path)
