@@ -11,8 +11,6 @@ gem 'moredown'
 gem 'chronic'
 gem 'activesupport'
 gem 'exifr'
-gem 'ruby-gmail'
-gem 'pony'
 
 group :development do
   gem 'guard'
