@@ -2,12 +2,9 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'sinatra'
-require 'haml'
 require 'json'
 require './sinatra-thumbnails/lib/sinatra/thumbnails.rb'
 require 'active_support/core_ext/integer/inflections'
-
-require 'pony'
 
 load 'models.rb'
 load 'helpers.rb'
