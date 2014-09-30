@@ -7,6 +7,7 @@ gem 'json'
 gem 'chronic'
 gem 'activesupport'
 gem 'exifr'
+gem 'dragonfly'
 
 group :development do
   gem 'guard'

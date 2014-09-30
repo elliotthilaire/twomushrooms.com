@@ -7,11 +7,16 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     chronic (0.10.2)
     coderay (1.1.0)
     daemons (1.1.9)
+    dragonfly (1.0.7)
+      addressable (~> 2.3)
+      multi_json (~> 1.0)
+      rack
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -94,6 +99,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   chronic
+  dragonfly
   exifr
   guard
   guard-livereload
