@@ -3,7 +3,9 @@
   <% @photos.each do |photo| %>
       <div class="photo col-xs-4">
 	      <a class="fancybox" rel="gallery" href="gallery/<%=photo.name%>" >
-	        	<img src="<%=thumbnail_url_for(photo.url, "300x300")%>" alt="<%= photo.caption %>" />
+            <img src="/image/300x300/<%= photo.filename %>" alt="<%= photo.caption %>"  />
+            <img src="<%= photo.filename %>" alt="<%= photo.caption %>"  />
+
 	      </a>
     </div><!--col-xs-4-->
   <% end %>

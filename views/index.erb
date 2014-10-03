@@ -3,7 +3,7 @@
   <% @photos.each do |photo| %>
     <div class="box">
       <a class="bottom" href="gallery/<%=photo.name%>" >
-          <img src="<%=thumbnail_url_for(photo.url, "300x200-crop")%>" />
+          <img src="image/300x300-crop/<%=photo.filename %>" />
       </a>
     </div>
   <% end %>

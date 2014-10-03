@@ -3,11 +3,19 @@ require 'exifr'
 
 include Sinatra::Thumbnails::Helpers
 
+class Picture
+
+end
+
 class Photo
 
-  attr_accessor :name, :filename, :url, :date_taken, :title, :mtime, :id, :caption
+  attr_accessor :name, :filename, :url, :date_taken, :title, :mtime, :id, :caption, :image_uid
 
   IMAGEPATH = File.join("content", "featured")
+
+extend Dragonfly::Model
+
+  dragonfly_accessor :image
 
   def initialize (args = {})
     filename = args[:filename]
@@ -17,6 +25,7 @@ class Photo
     @mtime = File.mtime(@url)
     @date_taken = EXIFR::JPEG.new(@url).date_time_original
     @caption = "Photo of #{@name.gsub('-', ' ')}"
+    @image_uid = @url
   end
   
   def self.all 

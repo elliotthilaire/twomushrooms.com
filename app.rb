@@ -10,6 +10,11 @@ require 'dragonfly'
 load 'models.rb'
 load 'helpers.rb'
 
+Dragonfly.app.configure do
+  plugin :imagemagick
+  verify_urls false
+end
+
 set :logging, true
 set :dump_errors, true
 
@@ -75,4 +80,8 @@ end
 # file = "content/" + params[:splat].first
 # send_file file
 #end
+
+get '/image/:size/:image' do |size, image|
+  Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).to_response(env)
+end
  
