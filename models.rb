@@ -32,11 +32,10 @@ class Photo
   end
 
   def self.find (slug)
-    
-    pathname = "content/featured/#{slug}.jpg"
+    results = Dir.glob("content/*/#{slug}*")
 
-    if File.exists?(pathname)
-      photo = new(:pathname => pathname)
+    if results.any?
+      photo = new(:pathname => results.first)
     end
   end
 
@@ -51,7 +50,7 @@ class Photo
   def self.prepare
 
     # search for files in directories
-    pathnames = Dir.glob('content/featured/*.{jpg}')
+    pathnames = Dir.glob('content/*/*.{jpg}')
 
     photos = []
 
