@@ -52,11 +52,10 @@ class Photo
     # search for files in directories
     pathnames = Dir.glob('content/*/*.{jpg}')
 
-    photos = []
+    photos = Array.new
 
     pathnames.each do |pathname|
-      photo = new(:pathname => pathname)
-      photos << photo
+      photos << new(:pathname => pathname)
     end
 
     photos.sort.reverse
