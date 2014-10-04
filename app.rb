@@ -20,6 +20,9 @@ load 'helpers.rb'
 set :logging, true
 set :dump_errors, true
 
+#redirect trailing slashes
+get %r{(.+)/$} do |r| redirect r; end;
+
 get '/' do
 
   cache_control :no_store 
@@ -40,13 +43,13 @@ get '/' do
   erb :index
 end
 
-get "/gallery" do
+get "/gallery/?" do
   @selected = :gallery
   @photos = Photo.all
   erb :gallery
 end
 
-get "/about" do
+get "/about/?" do
  @selected = :about
  erb :about
 end
@@ -55,14 +58,6 @@ get "/gallery/:photo" do
   @selected = :gallery
   @photo = Photo.find(params[:photo]) || raise(Sinatra::NotFound)
   erb :photo
-end
-
-get "/gallery/" do
-  redirect '/gallery'
-end
-
-get "/about/" do
-  redirect '/about'
 end
 
 #get "/:slug" do
