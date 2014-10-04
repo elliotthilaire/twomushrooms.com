@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<!--
+
 <script>
 	jQuery(document).ready(function($) {
 		
@@ -49,13 +49,13 @@
       function swapImage(){
         curr = (curr + 1) % thumbnails.length;
         url = thumbnails[curr].url;
-        stub = thumbnails[curr].stub;
+        slug = thumbnails[curr].slug;
 
         //pick a random box
         var random = Math.round(Math.random()*numberOfBoxes);
         randomBox = jQuery(".box").eq(nextImage());
          
-        html = '<a class="top" href="gallery/'+stub+'"><img src="'+url+'"/></a>';       
+        html = '<a class="top" href="gallery/'+slug+'"><img src="'+url+'"/></a>';       
         $(html).hide().appendTo(randomBox);
         randomBox.find(".top").fadeIn(2000,removeOldImage);                            
 
@@ -72,5 +72,4 @@
     });
 
 </script>
--->
 
