@@ -6,14 +6,16 @@ require 'json'
 require './sinatra-thumbnails/lib/sinatra/thumbnails.rb'
 require 'active_support/core_ext/integer/inflections'
 require 'dragonfly'
+require 'dragonfly/s3_data_store'
+#require 'yaml'
+
+require 'dotenv'
+Dotenv.load
 
 load 'models.rb'
 load 'helpers.rb'
 
-Dragonfly.app.configure do
-  plugin :imagemagick
-  verify_urls false
-end
+
 
 set :logging, true
 set :dump_errors, true
@@ -28,7 +30,7 @@ get '/' do
   photos = Photo.all.shuffle
 
   photos.each do |photo|
-    thumbnails << {:url => thumbnail_url_for(photo.url, "300x200-crop"), :stub => photo.name}
+    thumbnails << {:url => thumbnail_url_for(photo.slug, "300x200-crop"), :stub => photo.name}
   end
   
   @thumbnails = thumbnails.to_json
@@ -62,10 +64,10 @@ get "/about/" do
   redirect '/about'
 end
 
-get "/:slug" do
-  @photo = Photo.find(params[:slug]) || raise(Sinatra::NotFound)
-  erb :photo
-end
+#get "/:slug" do
+#  @photo = Photo.find(params[:slug]) || raise(Sinatra::NotFound)
+#  erb :photo
+#end
 
 not_found do
   erb :not_found
@@ -82,6 +84,8 @@ end
 #end
 
 get '/image/:size/:image' do |size, image|
-  Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).to_response(env)
+  uid = Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).store
+  Dragonfly.app.fetch(uid).to_response
+
 end
  

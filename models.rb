@@ -1,60 +1,62 @@
 require 'chronic'
 require 'exifr'
+require 'dragonfly'
 
 include Sinatra::Thumbnails::Helpers
 
-class Picture
-
-end
-
 class Photo
+  extend Dragonfly::Model
 
-  attr_accessor :name, :filename, :url, :date_taken, :title, :mtime, :id, :caption, :image_uid
-
-  IMAGEPATH = File.join("content", "featured")
-
-extend Dragonfly::Model
+  attr_accessor :id, :pathname, :filename, :slug, :name, :caption, :mtime, :date_taken, :image, :image_uid
 
   dragonfly_accessor :image
 
-  def initialize (args = {})
-    filename = args[:filename]
-    @filename = filename
-    @name = File.basename(@filename, ".*")
-    @url = File.join(IMAGEPATH, @filename)
-    @mtime = File.mtime(@url)
-    @date_taken = EXIFR::JPEG.new(@url).date_time_original
-    @caption = "Photo of #{@name.gsub('-', ' ')}"
-    @image_uid = @url
+  def initialize (params = {})
+    pathname = params[:pathname]
+
+    @pathname = pathname                        # content/featured/ant-on-blue-flower.jpg
+    @filename = File.basename(pathname)         # ant-on-blue-flower.jpg
+    @slug = File.basename(pathname, ".*")       # ant-on-blue-flower
+    @title = @slug.gsub('-', ' ')               # ant on blue flower
+    @caption = "Photo of #{@title}"             # Photo of ant on blue flower
+
+    @mtime = File.mtime(pathname)
+    @date_taken = EXIFR::JPEG.new(pathname).date_time_original
+
+    @image = Dragonfly.app.fetch_file(pathname)
+
   end
   
   def self.all 
     prepare
   end
 
-  def self.find (name)
-    if File.exists?(File.join(IMAGEPATH,name + ".jpg"))
-      photo = new(:filename => name + ".jpg")
+  def self.find (slug)
+    
+    pathname = "content/featured/#{slug}.jpg"
+
+    if File.exists?(pathname)
+      photo = new(:pathname => pathname)
     end
   end
 
   def to_s
-    @url
+    @pathname
   end
 
-  def <=> other_photo
-    date_taken <=> other_photo.date_taken
+  def <=> rhs
+    date_taken <=> rhs.date_taken
   end
   
   def self.prepare
-    path = File.join(IMAGEPATH,"*.{jpg}")
-    files = Dir.glob(path)
+
+    # search for files in directories
+    pathnames = Dir.glob('content/featured/*.{jpg}')
 
     photos = []
 
-    files.each do |file|
-      filename = File.basename(file)
-      photo = new(:filename => filename)
+    pathnames.each do |pathname|
+      photo = new(:pathname => pathname)
       photos << photo
     end
 

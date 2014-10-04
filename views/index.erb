@@ -2,15 +2,15 @@
   <div class="col-sm-12">
   <% @photos.each do |photo| %>
     <div class="box">
-      <a class="bottom" href="gallery/<%=photo.name%>" >
-          <img src="image/300x300-crop/<%=photo.filename %>" />
+      <a class="bottom" href="gallery/<%= photo.name %>" >
+          <img src="<%= photo.image.thumb('300x200#').url %>" />
       </a>
     </div>
   <% end %>
   </div>
 </div>
 
-	
+<!--
 <script>
 	jQuery(document).ready(function($) {
 		
@@ -72,3 +72,5 @@
     });
 
 </script>
+-->
+
