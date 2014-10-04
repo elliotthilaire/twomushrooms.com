@@ -8,6 +8,8 @@ gem 'chronic'
 gem 'activesupport'
 gem 'exifr'
 gem 'dragonfly'
+gem 'dragonfly-s3_data_store'
+gem 'dotenv'
 
 group :development do
   gem 'guard'
