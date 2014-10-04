@@ -21,7 +21,9 @@ set :logging, true
 set :dump_errors, true
 
 #redirect trailing slashes
-get %r{(.+)/$} do |r| redirect r; end;
+get %r{(.+)/$} do |r| 
+  redirect r
+end
 
 get '/' do
 
