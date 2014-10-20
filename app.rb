@@ -15,8 +15,6 @@ Dotenv.load
 load 'models.rb'
 load 'helpers.rb'
 
-
-
 set :logging, true
 set :dump_errors, true
 

@@ -1,6 +1,7 @@
 require 'chronic'
 require 'exifr'
 require 'dragonfly'
+require 'aws-sdk'
 
 include Sinatra::Thumbnails::Helpers
 
@@ -12,6 +13,15 @@ class Photo
   dragonfly_accessor :image
 
   def initialize (params = {})
+
+    s3 = AWS::S3.new(
+      # this comes straight from the correctly named environment variables
+      #  :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      #  :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  )
+
+  bucket = s3.buckets[ENV['S3_BUCKET']]
+
     pathname = params[:pathname]
 
     @pathname = pathname                        # content/featured/ant-on-blue-flower.jpg
@@ -23,7 +33,8 @@ class Photo
     @mtime = File.mtime(pathname)
     @date_taken = EXIFR::JPEG.new(pathname).date_time_original
 
-    @image = Dragonfly.app.fetch_file(pathname)
+    @image = Dragonfly.app.fetch(pathname)
+    #@image = Dragonfly.app.fetch(bucket.objects['featured/ant-on-blue-flower.jpg'].read)
 
   end
   
@@ -32,10 +43,13 @@ class Photo
   end
 
   def self.find (slug)
-    results = Dir.glob("content/*/#{slug}*")
 
-    if results.any?
-      photo = new(:pathname => results.first)
+    Dir.chdir('content') do
+      results = Dir.glob("*/#{slug}*")
+
+      if results.any?
+        photo = new(:pathname => results.first)
+      end
     end
   end
 
@@ -50,15 +64,20 @@ class Photo
   def self.prepare
 
     # search for files in directories
-    pathnames = Dir.glob('content/*/*.{jpg}')
 
-    photos = Array.new
+    Dir.chdir('content') do 
+        pathnames = Dir.glob('*/*.{jpg}')
 
-    pathnames.each do |pathname|
-      photos << new(:pathname => pathname)
+        photos = Array.new
+
+        pathnames.each do |pathname|
+          photos << new(:pathname => pathname)
+        end
+
+        photos.sort.reverse 
     end
 
-    photos.sort.reverse
+
   end
 
 end

@@ -10,6 +10,7 @@ gem 'exifr'
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
 gem 'dotenv'
+gem 'aws-sdk'
 
 group :development do
   gem 'guard'
