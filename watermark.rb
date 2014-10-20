@@ -8,5 +8,4 @@ class WatermarkProcessor
     attrs.style = 'watermarked'
   end
 
-
 end
