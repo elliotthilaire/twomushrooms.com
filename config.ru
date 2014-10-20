@@ -29,7 +29,7 @@ Dragonfly.app.configure do
 #    fog_storage_options: { path_style: true }
 
   datastore :file,
-    :root_path => 'content/featured/'
+    :root_path => 'content/'
 
 end
 
