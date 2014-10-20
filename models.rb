@@ -14,13 +14,13 @@ class Photo
 
   def initialize (params = {})
 
-    s3 = AWS::S3.new(
+  #  s3 = AWS::S3.new(
       # this comes straight from the correctly named environment variables
       #  :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       #  :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  )
+  #)
 
-  bucket = s3.buckets[ENV['S3_BUCKET']]
+  #bucket = s3.buckets[ENV['S3_BUCKET']]
 
     pathname = params[:pathname]
 
@@ -29,7 +29,6 @@ class Photo
     @slug = File.basename(pathname, ".*")       # ant-on-blue-flower
     @title = @slug.gsub('-', ' ')               # ant on blue flower
     @caption = "Photo of #{@title}"             # Photo of ant on blue flower
-
     @mtime = File.mtime(pathname)
     @date_taken = EXIFR::JPEG.new(pathname).date_time_original
 
