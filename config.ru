@@ -5,6 +5,8 @@ require './dragonfly/watermark_processor'
 require 'dotenv'
 Dotenv.load
 
+CONTENT_DIRECTORY = ENV['CONTENT_DIRECTORY']
+
 Dragonfly.app.configure do
   
   secret ENV['DRAGONFLY_SECRET']
@@ -21,18 +23,8 @@ Dragonfly.app.configure do
     /.*/
   ]
 
-#   datastore :s3,
-#    #region: 'us-east-1', 
-#    bucket_name: ENV['S3_BUCKET'],
-#    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-#    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-#    url_scheme: 'https',
-#    url_host: 's3.amazonaws.com/photography.elliotthilaire.net',
-#    fog_storage_options: { path_style: true }
-
-
   datastore :file,
-    :root_path => 'content/'
+    :root_path => CONTENT_DIRECTORY
 
   processor :watermark, WatermarkProcessor.new
 
