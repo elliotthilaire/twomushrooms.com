@@ -1,19 +1,19 @@
 require 'dragonfly'
 require 'dragonfly/s3_data_store'
+require './dragonfly/watermark_processor'
 
 require 'dotenv'
 Dotenv.load
 
-require './watermark'
-
-
 Dragonfly.app.configure do
- 
-  secret 'This is my secret yeh!!' 
+  
+  secret ENV['DRAGONFLY_SECRET']
+  
   plugin :imagemagick
+
   url_format '/media/:job/:name'
 
-  fetch_url_whitelist      [          # List of allowed urls when using fetch_url (strings or regexps)
+  fetch_url_whitelist [          
     /.*/
   ]
 
@@ -30,20 +30,13 @@ Dragonfly.app.configure do
 #    url_host: 's3.amazonaws.com/photography.elliotthilaire.net',
 #    fog_storage_options: { path_style: true }
 
+
   datastore :file,
     :root_path => 'content/'
 
   processor :watermark, WatermarkProcessor.new
 
 end
-
-# ... other initialization stuff above here ...
-#Dragonfly[:images].processor.register(Watermark)
-# optional, but gives you the ability to use watermark(opacity: 50)
-# rather than process(:watermark, opacity: 50)
-#Dragonfly[:images].configure do |c|
-#  c.job(:watermark) { |*args| process(:watermark, *args) }
-#end
 
 use Dragonfly::Middleware
 
