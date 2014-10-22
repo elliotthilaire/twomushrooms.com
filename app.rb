@@ -81,7 +81,8 @@ end
 
 get '/image/:size/:image' do |size, image|
   uid = Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).watermark.store
-  Dragonfly.app.fetch(uid).to_response
+  Dragonfly.app.fetch(uid).orientation.to_json
+
 
 end
  

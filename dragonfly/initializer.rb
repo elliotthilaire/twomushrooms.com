@@ -1,5 +1,6 @@
 require 'dragonfly'
 require './dragonfly/watermark_processor'
+require './dragonfly/orientation_analyser'
 
 Dragonfly.app.configure do
   
@@ -12,7 +13,7 @@ Dragonfly.app.configure do
   plugin :imagemagick
 
   url_format '/media/:job/:name'
-  url_format "/media/:job/:sha/:name"
+  #url_format "/media/:job/:sha/:name"
 
   fetch_url_whitelist [          
     /.*/
@@ -22,10 +23,11 @@ Dragonfly.app.configure do
     /.*/
   ]
 
-  datastore :file,
-    :root_path => './content/'
+  datastore :file, :root_path => './content/'
 
   processor :watermark, WatermarkProcessor.new
+
+  analyser :orientation, OrientationAnalyser.new
 
 end
 

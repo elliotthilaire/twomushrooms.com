@@ -34,7 +34,6 @@ class Photo
 
     @image = Dragonfly.app.fetch(pathname)
     #@image = Dragonfly.app.fetch(bucket.objects['featured/ant-on-blue-flower.jpg'].read)
-
   end
   
   def self.all 
