@@ -64,7 +64,7 @@ class Photo
 
     # search for files in directories
 
-    Dir.chdir('content') do 
+    Dir.chdir('./content/') do 
         pathnames = Dir.glob('*/*.{jpg}')
 
         photos = Array.new
