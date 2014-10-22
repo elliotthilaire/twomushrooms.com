@@ -3,11 +3,14 @@ require './dragonfly/watermark_processor'
 
 Dragonfly.app.configure do
   
-  secret ENV['DRAGONFLY_SECRET']
+  #secret ENV['DRAGONFLY_SECRET']
   
+  verify_urls false
+
   plugin :imagemagick
 
   url_format '/media/:job/:name'
+  url_format "/media/:job/:sha/:name"
 
   fetch_url_whitelist [          
     /.*/
