@@ -2,7 +2,7 @@
   <div class="col-sm-12">
   <% @photos.each do |photo| %>
     <div class="box">
-      <a class="bottom" href="gallery/<%= photo.name %>" >
+      <a class="bottom" href="gallery/<%= photo.slug %>" >
           <img src="<%= photo.image.thumb('300x200#').url %>" />
       </a>
     </div>
