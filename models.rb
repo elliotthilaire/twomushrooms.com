@@ -1,6 +1,5 @@
 require 'chronic'
 require 'exifr'
-require 'dragonfly'
 require 'aws-sdk'
 
 class Photo

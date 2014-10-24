@@ -6,11 +6,11 @@ require 'json'
 require 'active_support/core_ext/integer/inflections'
 require 'dragonfly'
 
+require './models.rb'
+require './helpers.rb'
+
 require 'dotenv'
 Dotenv.load
-
-load 'models.rb'
-load 'helpers.rb'
 
 set :logging, true
 set :dump_errors, true
@@ -30,7 +30,6 @@ get '/' do
   photos = Photo.all.shuffle
 
   photos.each do |photo|
-   # thumbnails << {:url => thumbnail_url_for(photo.slug, "300x200-crop"), :stub => photo.name}
     thumbnails << {:url => photo.image.thumb('300x200#').url, :slug => photo.slug}
   end
   
@@ -67,7 +66,7 @@ end
 
 # a route for testing
 get '/image/:size/:image' do |size, image|
-  uid = Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).watermark.store
-  Dragonfly.app.fetch(uid).orientation.to_json
+  uid = Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).watermark
+  uid.url
 end
  
