@@ -3,8 +3,6 @@ require 'exifr'
 require 'dragonfly'
 require 'aws-sdk'
 
-include Sinatra::Thumbnails::Helpers
-
 class Photo
   extend Dragonfly::Model
 
