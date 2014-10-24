@@ -6,8 +6,6 @@ require 'json'
 require './sinatra-thumbnails/lib/sinatra/thumbnails.rb'
 require 'active_support/core_ext/integer/inflections'
 require 'dragonfly'
-require 'dragonfly/s3_data_store'
-#require 'yaml'
 
 require 'dotenv'
 Dotenv.load
@@ -43,13 +41,13 @@ get '/' do
   erb :index
 end
 
-get "/gallery/?" do
+get "/gallery" do
   @selected = :gallery
   @photos = Photo.all
   erb :gallery
 end
 
-get "/about/?" do
+get "/about" do
  @selected = :about
  erb :about
 end
@@ -60,29 +58,17 @@ get "/gallery/:photo" do
   erb :photo
 end
 
-#get "/:slug" do
-#  @photo = Photo.find(params[:slug]) || raise(Sinatra::NotFound)
-#  erb :photo
-#end
-
 not_found do
   erb :not_found
 end
 
 error do
   erb :error
-  #env['sinatra.error'].name
 end
 
-#get "/content/*" do
-# file = "content/" + params[:splat].first
-# send_file file
-#end
-
+# a route for testing
 get '/image/:size/:image' do |size, image|
   uid = Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).watermark.store
   Dragonfly.app.fetch(uid).orientation.to_json
-
-
 end
  
