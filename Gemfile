@@ -21,3 +21,5 @@ group :development do
   gem 'thin'
   gem 'shotgun'
 end
+
+ruby '2.1.3'
