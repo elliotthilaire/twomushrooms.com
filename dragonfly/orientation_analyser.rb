@@ -1,3 +1,5 @@
+
+# Detect if an image is square, portrait or landscape
 class OrientationAnalyser
   def call(content, *_args)
     width = content.analyse(:width)
