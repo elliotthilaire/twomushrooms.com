@@ -32,7 +32,6 @@ class Photo
     photos = []
 
     search_string = './content/*/*.{jpg}'
-
     search_string = "./content/#{category}/*.{jpg}" if category
 
     Dir.glob(search_string).each do |pathname|

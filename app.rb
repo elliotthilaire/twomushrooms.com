@@ -28,7 +28,7 @@ get '/' do
   @selected = :home
 
   thumbnails = []
-  photos = PhotoPresenter.wrap(Photo.find_by_category('featured').shuffle)
+  photos = PhotoPresenter.wrap(Photo.all.shuffle)
 
   photos.each do |photo|
     thumbnails << { url: photo.image.thumb('300x200#').url, slug: photo.slug }
