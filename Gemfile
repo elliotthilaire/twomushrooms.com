@@ -22,4 +22,4 @@ group :development do
   gem 'shotgun'
 end
 
-ruby '2.1.3'
+ruby '2.1.2'
