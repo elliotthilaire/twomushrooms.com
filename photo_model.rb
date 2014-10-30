@@ -43,9 +43,6 @@ class Photo
 
   end
 
-  def category 
-
-  end
 
   def mtime
     File.mtime(@pathname) # file modified time
