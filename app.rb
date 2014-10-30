@@ -4,8 +4,10 @@ require 'json'
 require 'active_support/core_ext/integer/inflections'
 require 'dragonfly'
 
-require './models.rb'
 require './helpers.rb'
+
+require './photo_model.rb'
+require './photo_presenter.rb'
 
 require 'dotenv'
 Dotenv.load
@@ -25,7 +27,7 @@ get '/' do
   @selected = :home
 
   thumbnails = []
-  photos = Photo.all.shuffle
+  photos = PhotoPresenter.wrap(Photo.all.shuffle)
 
   photos.each do |photo|
     thumbnails << {:url => photo.image.thumb('300x200#').url, :slug => photo.slug}
@@ -39,7 +41,7 @@ end
 
 get "/gallery" do
   @selected = :gallery
-  @photos = Photo.all
+  @photos = PhotoPresenter.wrap(Photo.all)
   erb :gallery
 end
 
@@ -50,7 +52,7 @@ end
 
 get "/gallery/:photo" do
   @selected = :gallery
-  @photo = Photo.find(params[:photo]) || raise(Sinatra::NotFound)
+  @photo = PhotoPresenter.new(Photo.find(params[:photo])) || raise(Sinatra::NotFound)
   erb :photo
 end
 
