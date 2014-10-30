@@ -15,15 +15,15 @@ Dotenv.load
 set :logging, true
 set :dump_errors, true
 
-#redirect trailing slashes
-get %r{(.+)/$} do |r| 
+# redirect trailing slashes
+get %r{(.+)/$} do |r|
   redirect r
 end
 
 get '/' do
 
   # Don't cache the index page as it's random
-  cache_control :no_store 
+  cache_control :no_store
 
   @selected = :home
 
@@ -31,29 +31,29 @@ get '/' do
   photos = PhotoPresenter.wrap(Photo.all.shuffle)
 
   photos.each do |photo|
-    thumbnails << {:url => photo.image.thumb('300x200#').url, :slug => photo.slug}
+    thumbnails << { url: photo.image.thumb('300x200#').url, slug: photo.slug }
   end
-  
+
   @thumbnails = thumbnails.to_json
-  @photos = photos[0 .. 11]
+  @photos = photos[0..11]
 
   erb :index
 end
 
-get "/gallery" do
+get '/gallery' do
   @selected = :gallery
   @photos = PhotoPresenter.wrap(Photo.all)
   erb :gallery
 end
 
-get "/about" do
- @selected = :about
- erb :about
+get '/about' do
+  @selected = :about
+  erb :about
 end
 
-get "/gallery/:photo" do
+get '/gallery/:photo' do
   @selected = :gallery
-  @photo = PhotoPresenter.new(Photo.find(params[:photo])) || raise(Sinatra::NotFound)
+  @photo = PhotoPresenter.new(Photo.find(params[:photo])) || fail(Sinatra::NotFound)
   erb :photo
 end
 
@@ -70,4 +70,3 @@ get '/image/:size/:image' do |size, image|
   uid = Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).watermark
   uid.url
 end
- 

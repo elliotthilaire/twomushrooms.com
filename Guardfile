@@ -1,16 +1,16 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-#guard :rubocop, all_on_start: false do
+# guard :rubocop, all_on_start: false do
 #  watch(%r{.+\.rb$})
 #  watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
-#end
+# end
 
-#group :server do
+# group :server do
 #  guard :shotgun do
 #    watch(/.+/) # watch *every* file in the directory
 #  end
-#end
+# end
 
 guard 'livereload' do
   watch(%r{views/.+\.(erb|haml|slim)$})
@@ -21,8 +21,7 @@ guard 'livereload' do
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html))).*}) { |m| "/assets/#{m[3]}" }
 end
 
-#guard 'shotgun', :server => 'thin' do
+# guard 'shotgun', :server => 'thin' do
 #  watch %r{^(app|lib)/.*\.rb}
 #  watch 'config.ru'
-#end
-
+# end

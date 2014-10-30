@@ -1,7 +1,6 @@
 
 
 class Photo
-
   attr_accessor :pathname, :category, :slug
 
   @@path = './content/'
@@ -10,39 +9,35 @@ class Photo
   # ./content/gallery/
   # ./content/hidden/
 
-  def initialize (params = {})
+  def initialize(params = {})
     @pathname = params[:pathname]
-    @slug = File.basename(@pathname, ".*")
+    @slug = File.basename(@pathname, '.*')
     @category = File.dirname(@pathname).split('/').last
   end
-  
+
   # Class methods
 
-  def self.all 
+  def self.all
     prepare
   end
 
-  def self.find (slug)
+  def self.find(slug)
+    results = Dir.glob("#{@@path}/*/#{slug}*")
 
-      results = Dir.glob("#{@@path}/*/#{slug}*")
-
-      if results.any?
-        photo = new(:pathname => results.first)
-      end
+    if results.any?
+      photo = new(pathname: results.first)
+    end
   end
 
   def self.prepare
-
-    photos = Array.new
+    photos = []
 
     Dir.glob('./content/*/*.{jpg}').each do |pathname|
       photos << new(pathname: pathname)
     end
 
-    photos.sort.reverse 
-
+    photos.sort.reverse
   end
-
 
   def mtime
     File.mtime(@pathname) # file modified time
@@ -53,8 +48,7 @@ class Photo
     @pathname
   end
 
-  def <=> rhs
+  def <=>(rhs)
     mtime <=> rhs.mtime
   end
-
 end

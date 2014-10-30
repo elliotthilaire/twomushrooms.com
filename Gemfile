@@ -1,8 +1,8 @@
 
-source "http://rubygems.org"
+source 'http://rubygems.org'
 
 gem 'sinatra'
-#gem 'sinatra-thumbnails', :require => "sinatra/thumbnails"
+# gem 'sinatra-thumbnails', :require => "sinatra/thumbnails"
 gem 'json'
 gem 'chronic'
 gem 'activesupport'

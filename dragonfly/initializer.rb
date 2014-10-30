@@ -3,19 +3,19 @@ require './dragonfly/watermark_processor'
 require './dragonfly/orientation_analyser'
 
 Dragonfly.app.configure do
-  
-  #secret ENV['DRAGONFLY_SECRET']
-  
-  response_header "Cache-Control", "public, max-age=3600"
+
+  # secret ENV['DRAGONFLY_SECRET']
+
+  response_header 'Cache-Control', 'public, max-age=3600'
 
   verify_urls false
 
   plugin :imagemagick
 
   url_format '/media/:job/:name'
-  #url_format "/media/:job/:sha/:name"
+  # url_format "/media/:job/:sha/:name"
 
-  fetch_url_whitelist [          
+  fetch_url_whitelist [
     /.*/
   ]
 
@@ -23,7 +23,7 @@ Dragonfly.app.configure do
     /.*/
   ]
 
-  datastore :file, :root_path => './content/'
+  datastore :file, root_path: './content/'
 
   processor :watermark, WatermarkProcessor.new
 

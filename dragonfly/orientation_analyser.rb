@@ -1,20 +1,16 @@
 class OrientationAnalyser
-
-  def call(content, *args)
-
+  def call(content, *_args)
     width = content.analyse(:width)
     height = content.analyse(:height)
 
     if width == height
-    	return :square
+      return :square
     elsif width > height
-    	return :landscape
+      return :landscape
     elsif height > width
-    	return :portrait
+      return :portrait
     end
 
-    return :oops
-
+    :oops
   end
-
 end
