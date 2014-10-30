@@ -38,6 +38,10 @@ class Photo
     photos.sort.reverse
   end
 
+  def self.find_by_category(category)
+    all.select { |photo| photo.category == category }
+  end
+
   def mtime
     File.mtime(@pathname) # file modified time
   end
