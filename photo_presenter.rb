@@ -3,6 +3,7 @@ require 'exifr'
 
 require 'delegate'
 
+# Extra methods for Photo
 class PhotoPresenter < SimpleDelegator
   def filename
     File.basename(model.pathname) # ant-on-blue-flower.jpg
@@ -33,7 +34,8 @@ class PhotoPresenter < SimpleDelegator
     __getobj__
   end
 
-  # Enables us to call Presenter.wrap on a collection of objects and instatiate those objects
+  # Enables us to call Presenter.wrap on a collection of objects
+  # and instatiate those objects
   def self.wrap(collection)
     collection.map do |obj|
       new obj

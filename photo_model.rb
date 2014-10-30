@@ -1,9 +1,9 @@
 
-
+# Photo class from files on disk
 class Photo
   attr_accessor :pathname, :category, :slug
 
-  @@path = './content/'
+  @path = './content/'
 
   # ./content/featured/ant-on-blue-flower.jpg
   # ./content/gallery/
@@ -22,11 +22,10 @@ class Photo
   end
 
   def self.find(slug)
-    results = Dir.glob("#{@@path}/*/#{slug}*")
+    results = Dir.glob("#{@path}/*/#{slug}*")
 
-    if results.any?
-      photo = new(pathname: results.first)
-    end
+    # this might be buggy, what is returned if nothing is found?
+    new(pathname: results.first) if results.any?
   end
 
   def self.prepare
@@ -48,7 +47,7 @@ class Photo
     @pathname
   end
 
-  def <=>(rhs)
-    mtime <=> rhs.mtime
+  def <=>(other)
+    mtime <=> other.mtime
   end
 end
