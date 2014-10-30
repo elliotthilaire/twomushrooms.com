@@ -28,10 +28,14 @@ class Photo
     new(pathname: results.first) if results.any?
   end
 
-  def self.prepare
+  def self.prepare(category = nil)
     photos = []
 
-    Dir.glob('./content/*/*.{jpg}').each do |pathname|
+    search_string = './content/*/*.{jpg}'
+
+    search_string = "./content/#{category}/*.{jpg}" if category
+
+    Dir.glob(search_string).each do |pathname|
       photos << new(pathname: pathname)
     end
 
@@ -39,7 +43,8 @@ class Photo
   end
 
   def self.find_by_category(category)
-    all.select { |photo| photo.category == category }
+    prepare(category)
+    #all.select { |photo| photo.category == category }
   end
 
   def mtime
