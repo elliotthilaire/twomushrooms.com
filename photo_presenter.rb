@@ -9,10 +9,6 @@ class PhotoPresenter < SimpleDelegator
 		File.basename(model.pathname) # ant-on-blue-flower.jpg
 	end
 
-  	def slug
-    	File.basename(model.pathname, ".*") # ant-on-blue-flower
-  	end 
-
     def title
     	slug.gsub('-', ' ') # ant on blue flower
     end
@@ -20,8 +16,6 @@ class PhotoPresenter < SimpleDelegator
    def caption 
      "Photo of #{title}" # Photo of ant on blue flower
    end
-
-
 
   def date_taken
     EXIFR::JPEG.new(model.pathname).date_time_original

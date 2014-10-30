@@ -2,14 +2,18 @@
 
 class Photo
 
- # Not needed when using Dragonfly.fetch_file
- #extend Dragonfly::Model
- #dragonfly_accessor :image
+  attr_accessor :pathname, :category, :slug
 
-  attr_accessor :pathname
+  @@path = './content/'
+
+  # ./content/featured/ant-on-blue-flower.jpg
+  # ./content/gallery/
+  # ./content/hidden/
 
   def initialize (params = {})
     @pathname = params[:pathname]
+    @slug = File.basename(@pathname, ".*")
+    @category = File.dirname(@pathname).split('/').last
   end
   
   # Class methods
@@ -20,7 +24,7 @@ class Photo
 
   def self.find (slug)
 
-      results = Dir.glob("./content/*/#{slug}*")
+      results = Dir.glob("#{@@path}/*/#{slug}*")
 
       if results.any?
         photo = new(:pathname => results.first)
@@ -29,16 +33,17 @@ class Photo
 
   def self.prepare
 
-    # search for files in directories
-    pathnames = Dir.glob('./content/*/*.{jpg}')
-
     photos = Array.new
 
-    pathnames.each do |pathname|
-      photos << new(:pathname => pathname)
+    Dir.glob('./content/*/*.{jpg}').each do |pathname|
+      photos << new(pathname: pathname)
     end
 
     photos.sort.reverse 
+
+  end
+
+  def category 
 
   end
 

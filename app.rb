@@ -22,6 +22,7 @@ end
 
 get '/' do
 
+  # Don't cache the index page as it's random
   cache_control :no_store 
 
   @selected = :home
