@@ -42,7 +42,7 @@ end
 
 get '/gallery' do
   @selected = :gallery
-  @photos = PhotoPresenter.wrap(Photo.all)
+  @photos = PhotoPresenter.wrap(Photo.all).sort.reverse
   erb :gallery
 end
 

@@ -38,7 +38,7 @@ class Photo
       photos << new(pathname: pathname)
     end
 
-    photos.sort.reverse
+    photos
   end
 
   def self.find_by_category(category)
@@ -56,7 +56,7 @@ class Photo
     @pathname
   end
 
-  def <=>(other)
-    mtime <=> other.mtime
-  end
+  #def <=>(other)
+  #  mtime <=> other.mtime
+  #end
 end
