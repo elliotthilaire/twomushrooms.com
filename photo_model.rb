@@ -46,6 +46,7 @@ class Photo
     #all.select { |photo| photo.category == category }
   end
 
+  # file modified time
   def mtime
     File.mtime(@pathname) # file modified time
   end
