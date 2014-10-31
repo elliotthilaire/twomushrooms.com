@@ -25,6 +25,10 @@ class PhotoPresenter < SimpleDelegator
     Dragonfly.app.fetch_file(model.pathname)
   end
 
+  def <=>(other)
+    date_taken <=> other.date_taken
+  end
+
   #######
 
   # Returns ref to the object we're decorating
