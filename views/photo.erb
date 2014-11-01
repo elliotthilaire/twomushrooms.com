@@ -30,6 +30,18 @@
 
 <script>
 
+$(document).ready(function() {
+
+    $('img').addClass('collapse');
+    
+    $(".collapse").on('load', function(){
+     $(this).fadeIn().removeClass('collapse');
+    });
+
+    
+});
+
+
   h = document.body.clientHeight;
   document.getElementById("image").style.maxHeight=h-150+"px";
 
