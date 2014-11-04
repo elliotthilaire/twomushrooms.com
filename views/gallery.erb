@@ -3,7 +3,7 @@
   <% @photos.each do |photo| %>
     <div class="photo col-xs-4">
 	      <a class="fancybox" rel="gallery" href="gallery/<%=photo.slug%>" >
-            <img src="<%= photo.image.thumb('300x300').url %>" />
+            <img class="collapse" src="<%= photo.image.thumb('300x300').url %>" />
 	      </a>
     </div><!--col-xs-4-->
   <% end %>
@@ -14,7 +14,8 @@
 <script>
   $(document).ready(function() {
 
-    $('img').addClass('collapse');
+    //  added to class in html instead
+    //$('img').addClass('collapse');
     
     $(".collapse").on('load', function(){
      $(this).fadeIn().removeClass('collapse');
