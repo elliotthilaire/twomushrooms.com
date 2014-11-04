@@ -18,18 +18,13 @@ class Photo
   end
 
   def self.find_by_category(category)
-    prepare(category)
-    #all.select { |photo| photo.category == category }
+    prepare(category: category)
   end
 
   def self.find(slug)
     results = Dir.glob("#{@path}/*/#{slug}*")
     new(pathname: results.first) if results.any?
   end
-
-
-
- 
 
   # file modified time
   def mtime
@@ -50,8 +45,8 @@ class Photo
   def self.prepare(params = {})
     photos = []
 
-    if params['category']
-      search_string = "#{@path}/#params['category']/*.{jpg}"
+    if params[:category]
+      search_string = "#{@path}/#{params[:category]}/*.{jpg}"
     else
       search_string = "#{@path}/*/*.{jpg}"
     end
