@@ -3,7 +3,7 @@
 class Photo
   attr_accessor :pathname, :category, :slug
 
-  @path = './content/'
+  @path = './content' # no trailing slash
 
   def initialize(params = {})
     @pathname = params[:pathname]
@@ -24,14 +24,13 @@ class Photo
     new(pathname: results.first) if results.any?
   end
 
-  #def self.prepare(category = nil)
   def self.prepare(params = {})
     photos = []
 
     if params['category']
-      search_string = "./content/#params['category']/*.{jpg}"
+      search_string = "#{@path}/#params['category']/*.{jpg}"
     else
-      search_string = './content/*/*.{jpg}'
+      search_string = "#{@path}/*/*.{jpg}"
     end
     
     Dir.glob(search_string).each do |pathname|
