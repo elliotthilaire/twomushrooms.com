@@ -5,10 +5,6 @@ class Photo
 
   @path = './content/'
 
-  # ./content/featured/ant-on-blue-flower.jpg
-  # ./content/gallery/
-  # ./content/hidden/
-
   def initialize(params = {})
     @pathname = params[:pathname]
     @slug = File.basename(@pathname, '.*')
@@ -28,12 +24,16 @@ class Photo
     new(pathname: results.first) if results.any?
   end
 
-  def self.prepare(category = nil)
+  #def self.prepare(category = nil)
+  def self.prepare(params = {})
     photos = []
 
-    search_string = './content/*/*.{jpg}'
-    search_string = "./content/#{category}/*.{jpg}" if category
-
+    if params['category']
+      search_string = "./content/#params['category']/*.{jpg}"
+    else
+      search_string = './content/*/*.{jpg}'
+    end
+    
     Dir.glob(search_string).each do |pathname|
       photos << new(pathname: pathname)
     end
