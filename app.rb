@@ -42,7 +42,11 @@ end
 
 get '/gallery' do
   @selected = :gallery
-  @photos = PhotoPresenter.wrap(Photo.all).sort.reverse
+
+  @photos = PhotoPresenter.wrap(
+    Photo.find_by_categories(['featured','gallery'])
+    ).sort.reverse
+  
   erb :gallery
 end
 

@@ -21,6 +21,19 @@ class Photo
     prepare(category: category)
   end
 
+  # Takes an array of categories
+  # Returns an array of photos
+  # e.g. find_by_categories(['featured', 'gallery'])
+  def self.find_by_categories(array)
+    photos = []
+
+    array.each do |category| 
+      photos.push *find_by_category(category)
+    end
+
+    photos
+  end
+
   def self.find(slug)
     prepare(slug: slug).first || nil
   end
