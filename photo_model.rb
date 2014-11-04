@@ -24,7 +24,7 @@ class Photo
 
   def self.find(slug)
     results = Dir.glob("#{@path}/*/#{slug}*")
-    new(pathname: results.first) if results.any? else nil
+    new(pathname: results.first) if results.any?
   end
 
 
@@ -37,9 +37,9 @@ class Photo
   end
 
   # Overrides
-  def to_s
-    @pathname
-  end
+  #def to_s
+  #  @pathname
+  #end
 
   #def <=>(other)
   #  mtime <=> other.mtime
@@ -62,4 +62,5 @@ class Photo
 
     photos
   end
+
 end
