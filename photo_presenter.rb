@@ -29,6 +29,11 @@ class PhotoPresenter < SimpleDelegator
     date_taken <=> other.date_taken
   end
 
+  # file modified time
+  def mtime
+    File.mtime(@pathname) # file modified time
+  end
+
   #######
 
   # Returns ref to the object we're decorating

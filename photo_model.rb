@@ -22,34 +22,19 @@ class Photo
   end
 
   def self.find(slug)
-    results = Dir.glob("#{@path}/*/#{slug}*")
-    new(pathname: results.first) if results.any?
+    prepare(slug: slug).first || nil
   end
-
-  # file modified time
-  def mtime
-    File.mtime(@pathname) # file modified time
-  end
-
-  # Overrides
-  #def to_s
-  #  @pathname
-  #end
-
-  #def <=>(other)
-  #  mtime <=> other.mtime
-  #end
 
   protected
 
+  # Returns an array of Photo objects.
   def self.prepare(params = {})
     photos = []
 
-    if params[:category]
-      search_string = "#{@path}/#{params[:category]}/*.{jpg}"
-    else
-      search_string = "#{@path}/*/*.{jpg}"
-    end
+    category = params[:category] || '*'
+    slug = params[:slug] || '*'
+ 
+    search_string = "#{@path}/#{category}/#{slug}.{jpg}"  
     
     Dir.glob(search_string).each do |pathname|
       photos << new(pathname: pathname)
