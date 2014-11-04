@@ -17,12 +17,35 @@ class Photo
     prepare
   end
 
+  def self.find_by_category(category)
+    prepare(category)
+    #all.select { |photo| photo.category == category }
+  end
+
   def self.find(slug)
     results = Dir.glob("#{@path}/*/#{slug}*")
-
-    # this might be buggy, what is returned if nothing is found?
-    new(pathname: results.first) if results.any?
+    new(pathname: results.first) if results.any? else nil
   end
+
+
+
+ 
+
+  # file modified time
+  def mtime
+    File.mtime(@pathname) # file modified time
+  end
+
+  # Overrides
+  def to_s
+    @pathname
+  end
+
+  #def <=>(other)
+  #  mtime <=> other.mtime
+  #end
+
+  protected
 
   def self.prepare(params = {})
     photos = []
@@ -39,23 +62,4 @@ class Photo
 
     photos
   end
-
-  def self.find_by_category(category)
-    prepare(category)
-    #all.select { |photo| photo.category == category }
-  end
-
-  # file modified time
-  def mtime
-    File.mtime(@pathname) # file modified time
-  end
-
-  # Overrides
-  def to_s
-    @pathname
-  end
-
-  #def <=>(other)
-  #  mtime <=> other.mtime
-  #end
 end
