@@ -11,6 +11,7 @@ gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
 gem 'dotenv'
 gem 'aws-sdk'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'guard'
