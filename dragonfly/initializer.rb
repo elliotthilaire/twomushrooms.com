@@ -6,7 +6,7 @@ Dragonfly.app.configure do
 
   # secret ENV['DRAGONFLY_SECRET']
 
-  response_header 'Cache-Control', 'public, max-age=3600'
+  response_header 'Cache-Control', 'public, max-age=86400'
 
   verify_urls false
 
