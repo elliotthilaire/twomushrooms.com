@@ -7,7 +7,7 @@ html, body{
 }
 body {
   background-color: #121417;
-  background-image: url(/textures/dark_dotted2/dark_dotted2.png);
+  background-image: url('textures/dark_dotted2/dark_dotted2.png');
   background-repeat:repeat;
 }
 a:focus { /* remove outline for clicked on links */
