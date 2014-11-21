@@ -1,5 +1,6 @@
 
 require 'sinatra/base'
+require 'sinatra/asset_pipeline'
 require 'json'
 require 'active_support/core_ext/integer/inflections'
 
@@ -11,8 +12,6 @@ require './photo_presenter.rb'
 # Load Dragonfly configuration
 require 'dragonfly'
 require './dragonfly/initializer.rb'
-
-require 'sinatra/asset_pipeline'
 
 require 'dotenv'
 Dotenv.load
