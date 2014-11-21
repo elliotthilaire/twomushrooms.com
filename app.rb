@@ -1,76 +1,91 @@
 
-require 'sinatra'
+require 'sinatra/base'
 require 'json'
 require 'active_support/core_ext/integer/inflections'
-require 'dragonfly'
 
 require './helpers.rb'
 
 require './photo_model.rb'
 require './photo_presenter.rb'
 
+# Load Dragonfly configuration
+require 'dragonfly'
+require './dragonfly/initializer.rb'
+
+require 'sinatra/asset_pipeline'
+
 require 'dotenv'
 Dotenv.load
 
-set :logging, true
-set :dump_errors, true
 
-# redirect trailing slashes
-get %r{(.+)/$} do |r|
-  redirect r
-end
+class App < Sinatra::Base
 
-get '/' do
+  set :logging, true
+  set :dump_errors, true
 
-  # Don't cache the index page as it's random
-  cache_control :no_store
+  register Sinatra::AssetPipeline
+   
+  # Run Dragonfly as middleware
+  use Dragonfly::Middleware
 
-  @selected = :home
-
-  thumbnails = []
-  photos = PhotoPresenter.wrap(Photo.find_by_category('featured').shuffle)
-
-  photos.each do |photo|
-    thumbnails << { url: photo.image.thumb('300x200#').url, slug: photo.slug }
+  # redirect trailing slashes
+  get %r{(.+)/$} do |r|
+    redirect r
   end
 
-  @thumbnails = thumbnails.to_json
-  @photos = photos[0..11]
+  get '/' do
 
-  erb :index
-end
+    # Don't cache the index page as it's random
+    cache_control :no_store
 
-get '/gallery' do
-  @selected = :gallery
+    @selected = :home
 
-  @photos = PhotoPresenter.wrap(
-    Photo.find_by_categories(['featured','gallery'])
-    ).sort.reverse
-  
-  erb :gallery
-end
+    thumbnails = []
+    photos = PhotoPresenter.wrap(Photo.find_by_category('featured').shuffle)
 
-get '/about' do
-  @selected = :about
-  erb :about
-end
+    photos.each do |photo|
+      thumbnails << { url: photo.image.thumb('300x200#').url, slug: photo.slug }
+    end
 
-get '/gallery/:photo' do
-  @selected = :gallery
-  @photo = PhotoPresenter.new(Photo.find(params[:photo])) || fail(Sinatra::NotFound)
-  erb :photo
-end
+    @thumbnails = thumbnails.to_json
+    @photos = photos[0..11]
 
-not_found do
-  erb :not_found
-end
+    erb :index
+  end
 
-error do
-  erb :error
-end
+  get '/gallery' do
+    @selected = :gallery
 
-# a route for testing
-get '/image/:size/:image' do |size, image|
-  uid = Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).watermark
-  uid.url
+    @photos = PhotoPresenter.wrap(
+      Photo.find_by_categories(['featured','gallery'])
+      ).sort.reverse
+    
+    erb :gallery
+  end
+
+  get '/about' do
+    @selected = :about
+    erb :about
+  end
+
+  get '/gallery/:photo' do
+    @selected = :gallery
+    @photo = PhotoPresenter.new(Photo.find(params[:photo])) || fail(Sinatra::NotFound)
+    erb :photo
+  end
+
+  not_found do
+    erb :not_found
+  end
+
+  error do
+    erb :error
+  end
+
+  # a route for testing
+  get '/image/:size/:image' do |size, image|
+    uid = Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).watermark
+    uid.url
+  end
+
 end

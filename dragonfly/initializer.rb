@@ -31,4 +31,3 @@ Dragonfly.app.configure do
 
 end
 
-use Dragonfly::Middleware
