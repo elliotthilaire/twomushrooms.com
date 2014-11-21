@@ -4,8 +4,6 @@ require 'sinatra/asset_pipeline'
 require 'json'
 require 'active_support/core_ext/integer/inflections'
 
-require './helpers.rb'
-
 require './photo_model.rb'
 require './photo_presenter.rb'
 
