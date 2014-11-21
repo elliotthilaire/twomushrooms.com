@@ -12,6 +12,7 @@ gem 'dragonfly-s3_data_store'
 gem 'dotenv'
 gem 'aws-sdk'
 gem 'newrelic_rpm'
+gem 'sinatra-asset-pipeline'
 
 group :development do
   gem 'guard'

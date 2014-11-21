@@ -18,6 +18,10 @@ GEM
       timers (~> 4.0.0)
     chronic (0.10.2)
     coderay (1.1.0)
+    coffee-script (2.3.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.8.0)
     daemons (1.1.9)
     dotenv (1.0.2)
     dragonfly (1.0.7)
@@ -33,6 +37,7 @@ GEM
     eventmachine (1.0.3)
     eventmachine (1.0.3-x86-mingw32)
     excon (0.41.0)
+    execjs (2.2.2)
     exifr (1.2.0)
     ffi (1.9.6)
     ffi (1.9.6-x86-mingw32)
@@ -86,6 +91,7 @@ GEM
       ffi
       guard (~> 2.0)
       spoon
+    hike (1.2.3)
     hitimes (1.2.2)
     http_parser.rb (0.6.0)
     i18n (0.6.11)
@@ -122,19 +128,39 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
+    rake (10.3.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rb-readline (0.5.1)
+    sass (3.4.8)
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
+    sinatra-asset-pipeline (0.6.0)
+      coffee-script (~> 2.3)
+      rake (~> 10.0)
+      sass (~> 3.1)
+      sinatra (~> 1.4)
+      sprockets (~> 2.12)
+      sprockets-helpers (~> 1.1)
+      sprockets-sass (~> 1.2)
     slop (3.6.0)
     spoon (0.0.4)
       ffi
+    sprockets (2.12.3)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    sprockets-helpers (1.1.0)
+      sprockets (~> 2.0)
+    sprockets-sass (1.3.0)
+      sprockets (~> 2.0)
+      tilt (~> 1.1)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -169,4 +195,5 @@ DEPENDENCIES
   rb-readline
   shotgun
   sinatra
+  sinatra-asset-pipeline
   thin
