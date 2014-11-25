@@ -1,59 +1,42 @@
+require 'chronic'
+require 'exifr'
 
-# Photo class from files on disk
-class Photo
-  attr_accessor :pathname, :category, :slug
+require './photofile_model.rb'
+
+# Extra methods for Photo
+class Photo < PhotoFile
 
   @path = './content' # no trailing slash
 
-  def initialize(params = {})
-    @pathname = params[:pathname]
-    @slug = File.basename(@pathname, '.*')
-    @category = File.dirname(@pathname).split('/').last
+  def filename
+    File.basename(@pathname) # ant-on-blue-flower.jpg
   end
 
-  # Class methods
-
-  def self.all
-    prepare
+  def title
+    slug.gsub('-', ' ') # ant on blue flower
   end
 
-  def self.find_by_category(category)
-    prepare(category: category)
+  def caption
+    "Photo of #{title}" # Photo of ant on blue flower
   end
 
-  # Takes an array of categories
-  # Returns an array of photos
-  # e.g. find_by_categories(['featured', 'gallery'])
-  def self.find_by_categories(array)
-    photos = []
-
-    array.each do |category| 
-      photos.push *find_by_category(category)
-    end
-
-    photos
+  def date_taken
+    EXIFR::JPEG.new(@pathname).date_time_original
   end
 
-  def self.find(slug)
-    prepare(slug: slug).first || nil
+  def image
+    Dragonfly.app.fetch_file(@pathname)
   end
 
-  protected
-
-  # Returns an array of Photo objects.
-  def self.prepare(params = {})
-    photos = []
-
-    category = params[:category] || '*'
-    slug = params[:slug] || '*'
- 
-    search_string = "#{@path}/#{category}/#{slug}.{jpg}"  
-    
-    Dir.glob(search_string).each do |pathname|
-      photos << new(pathname: pathname)
-    end
-
-    photos
+  def <=>(other)
+    date_taken <=> other.date_taken
   end
+
+  # file modified time
+  def mtime
+    File.mtime(@pathname) # file modified time
+  end
+
+  #######
 
 end

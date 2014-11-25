@@ -5,7 +5,6 @@ require 'json'
 require 'active_support/core_ext/integer/inflections'
 
 require './photo_model.rb'
-require './photo_presenter.rb'
 
 # Load Dragonfly configuration
 require 'dragonfly'
@@ -38,7 +37,7 @@ class App < Sinatra::Base
     @selected = :home
 
     thumbnails = []
-    photos = PhotoPresenter.wrap(Photo.find_by_category('featured').shuffle)
+    photos = Photo.find_by_category('featured').shuffle
 
     photos.each do |photo|
       thumbnails << { url: photo.image.thumb('300x200#').url, slug: photo.slug }
@@ -53,10 +52,8 @@ class App < Sinatra::Base
   get '/gallery' do
     @selected = :gallery
 
-    @photos = PhotoPresenter.wrap(
-      Photo.find_by_categories(['featured','gallery'])
-      ).sort.reverse
-    
+    @photos = Photo.find_by_categories(['featured','gallery'])
+
     erb :gallery
   end
 
@@ -67,7 +64,7 @@ class App < Sinatra::Base
 
   get '/gallery/:photo' do
     @selected = :gallery
-    @photo = PhotoPresenter.new(Photo.find(params[:photo])) || fail(Sinatra::NotFound)
+    @photo = Photo.find(params[:photo]) || fail(Sinatra::NotFound)
     erb :photo
   end
 
