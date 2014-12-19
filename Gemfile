@@ -13,6 +13,8 @@ gem 'dotenv'
 gem 'aws-sdk'
 gem 'newrelic_rpm'
 gem 'sinatra-asset-pipeline'
+gem 'sass'
+gem 'uglifier'
 
 group :development do
   gem 'guard'

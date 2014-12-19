@@ -19,7 +19,11 @@ class App < Sinatra::Base
   set :logging, true
   set :dump_errors, true
 
+  set :assets_css_compressor, :sass
+  set :assets_js_compressor, :uglifier
   register Sinatra::AssetPipeline
+
+
    
   # Run Dragonfly as middleware
   use Dragonfly::Middleware
