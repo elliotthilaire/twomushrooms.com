@@ -47,8 +47,9 @@ class App < Sinatra::Base
     #  thumbnails << { url: photo.image.thumb('300x200#').url, slug: photo.slug }
     #end
 
-    @thumbnails = photos
     @photos = photos[0..11]
+    @thumbnails = photos[12..-1]
+
 
     erb :index
   end
