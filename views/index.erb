@@ -60,6 +60,7 @@
 
     TIMEOUT = 3000;
     FADEIN_TIME = 2500;
+
     setTimeout(swapImage,TIMEOUT);
 
       // get a random url and swap the image
@@ -70,7 +71,8 @@
 
         //pick a random box
         var random = Math.round(Math.random()*numberOfBoxes);
-        randomBox = jQuery(".box").eq(nextImage());
+        //randomBox = jQuery(".box").eq(nextImage());
+        randomBox = jQuery(".box").random();
          
         // add .bottom class
         randomBox.find('.picture').addClass("bottom", fadeNew());
@@ -93,6 +95,12 @@
         //recurse into this function to do it all again
         setTimeout(swapImage, TIMEOUT);
 
+      }
+
+      // .random() auxillery function 
+      // http://stackoverflow.com/questions/18519975/jquery-get-random-element-from-a-selection-returned-by-selector
+      $.fn.random = function() {
+        return this.eq(Math.floor(Math.random() * this.length));
       }
       
     });
