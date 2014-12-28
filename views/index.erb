@@ -2,9 +2,11 @@
   <div class="col-sm-12">
   <% @photos.each do |photo| %>
     <div class="box">
-      <a class="bottom" href="gallery/<%= photo.slug %>" >
+      <div class="picture">
+        <a href="gallery/<%= photo.slug %>" >
           <img src="<%= photo.image.thumb('300x200#').url %>" />
-      </a>
+        </a>
+      </div>
     </div>
   <% end %>
   </div>
@@ -12,25 +14,30 @@
 
 <div class="hide">
   <% @thumbnails.each do |photo| %>
-      <a class="bottom" href="gallery/<%= photo.slug %>" >
+    <div class="picture picturelist">
+      <a href="gallery/<%= photo.slug %>" >
           <img src="<%= photo.image.thumb('300x200#').url %>" />
       </a>
-  <% end%>
+    </div>
+  <% end %>
 </div>
 
 
 <script>
 	jQuery(document).ready(function($) {
+
+    // Create array of elements from HTML
+    myArray = $('.picturelist').toArray();
 		
-    var thumbnails = <%= @thumbnails %>
+    //var thumbnails = <%= @thumbnails %>
     var curr = 13;   
     var numberOfBoxes = jQuery(".box").size();
 
     // preload images
-    jQuery.each(thumbnails, loadImage);
-    function loadImage(key,value){
-      jQuery.ajax(value.url);
-    }
+    //jQuery.each(thumbnails, loadImage);
+    //function loadImage(key,value){
+    //  jQuery.ajax(value.url);
+    //}
 
 
     // create random ordered indexes
@@ -38,10 +45,11 @@
     for (var i = 0; i < numberOfBoxes; i++) {
         list.push(i);
     }
-    function randOrd(){
-      return (Math.round(Math.random())-0.5);
-    }
-    list.sort(randOrd);
+
+    //function randOrd(){
+    //  return (Math.round(Math.random())-0.5);
+    //}
+    //list.sort(randOrd);
 
     // function for getting the next random image
     var i = 1;
@@ -50,30 +58,40 @@
       return list[i];
     }
 
-    timer = 3000;
-     setTimeout(swapImage,timer);
+    TIMEOUT = 3000;
+    FADEIN_TIME = 2500;
+    setTimeout(swapImage,TIMEOUT);
 
       // get a random url and swap the image
       function swapImage(){
-        curr = (curr + 1) % thumbnails.length;
-        url = thumbnails[curr].url;
-        slug = thumbnails[curr].slug;
+        //curr = (curr + 1) % thumbnails.length;
+        //url = thumbnails[curr].url;
+        //slug = thumbnails[curr].slug;
 
         //pick a random box
         var random = Math.round(Math.random()*numberOfBoxes);
         randomBox = jQuery(".box").eq(nextImage());
          
-        html = '<a class="top" href="gallery/'+slug+'"><img src="'+url+'"/></a>';       
-        $(html).hide().appendTo(randomBox);
-        randomBox.find(".top").fadeIn(2000,removeOldImage);                            
+        // add .bottom class
+        randomBox.find('.picture').addClass("bottom", fadeNew());
+
+        function fadeNew(){
+
+          // get picture from array
+          var html = myArray.shift();
+
+          // Add the new image and fade it in
+          $(html).hide().appendTo(randomBox);
+          randomBox.find(':not(.bottom)').fadeIn(FADEIN_TIME, removePreviousPicture);
+        }
 
         // remove the old image
-        function removeOldImage(){
+        function removePreviousPicture(){
           randomBox.find(".bottom").remove();
-          randomBox.find(".top").attr('class', 'bottom');
         }
+
         //recurse into this function to do it all again
-        setTimeout(swapImage, timer);
+        setTimeout(swapImage, TIMEOUT);
 
       }
       

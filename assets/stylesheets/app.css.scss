@@ -40,15 +40,16 @@ a:focus { /* remove outline for clicked on links */
   padding:0px;
   border:1px solid hsla(0,0%,0%,0.7);
 }
-.box > a { width:100%; }
-.box > a > img { width:100%; }
-.box .top {
+.box a { width:100%; }
+.box a img { width:100%; }
+.box .top { }
+.box .bottom {
   position:absolute;
   left:0px;
   top:0px;
-  z-index:1;
+  z-index:-1
+
 }
-.box .bottom {}
 
 /* photo page */
 .vertical-container {
