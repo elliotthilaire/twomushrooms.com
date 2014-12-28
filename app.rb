@@ -40,16 +40,10 @@ class App < Sinatra::Base
 
     @selected = :home
 
-    thumbnails = []
     photos = Photo.find_by_category('featured').shuffle
 
-    #photos.each do |photo|
-    #  thumbnails << { url: photo.image.thumb('300x200#').url, slug: photo.slug }
-    #end
-
     @photos = photos[0..11]
-    @thumbnails = photos[12..-1]
-
+    @fadein_photos = photos[12..-1]
 
     erb :index
   end

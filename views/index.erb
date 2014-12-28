@@ -13,7 +13,7 @@
 </div>
 
 <div class="hide">
-  <% @thumbnails.each do |photo| %>
+  <% @fadein_photos.each do |photo| %>
     <div class="picture picturelist">
       <a href="gallery/<%= photo.slug %>" >
           <img src="<%= photo.image.thumb('300x200#').url %>" />
@@ -29,7 +29,7 @@
     // Create array of elements from HTML
     myArray = $('.picturelist').toArray();
 		
-    //var thumbnails = <%= @thumbnails %>
+
     var curr = 13;   
     var numberOfBoxes = jQuery(".box").size();
 
@@ -71,11 +71,16 @@
 
         //pick a random box
         randomBox = jQuery(".box").random();
+        
+        //push the current picture into the array
+        myArray.push(randomBox.html());
          
         // add .bottom class
         randomBox.find('.picture').addClass("bottom", fadeNew());
 
         function fadeNew(){
+
+
 
           // get picture from array
           var html = myArray.shift();
