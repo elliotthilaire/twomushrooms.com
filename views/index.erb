@@ -10,6 +10,14 @@
   </div>
 </div>
 
+<div class="hide">
+  <% @thumbnails.each do |photo| %>
+      <a class="bottom" href="gallery/<%= photo.slug %>" >
+          <img src="<%= photo.image.thumb('300x200#').url %>" />
+      </a>
+  <% end%>
+</div>
+
 
 <script>
 	jQuery(document).ready(function($) {

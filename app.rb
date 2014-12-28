@@ -43,11 +43,11 @@ class App < Sinatra::Base
     thumbnails = []
     photos = Photo.find_by_category('featured').shuffle
 
-    photos.each do |photo|
-      thumbnails << { url: photo.image.thumb('300x200#').url, slug: photo.slug }
-    end
+    #photos.each do |photo|
+    #  thumbnails << { url: photo.image.thumb('300x200#').url, slug: photo.slug }
+    #end
 
-    @thumbnails = thumbnails.to_json
+    @thumbnails = photos
     @photos = photos[0..11]
 
     erb :index
