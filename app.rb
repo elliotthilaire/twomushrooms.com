@@ -4,6 +4,7 @@ require 'sinatra/asset_pipeline'
 require 'json'
 require 'active_support/core_ext/integer/inflections'
 require 'sass'
+require 'uglifier'
 
 require './photo_model.rb'
 
@@ -24,8 +25,6 @@ class App < Sinatra::Base
   set :assets_js_compressor, :uglifier
   register Sinatra::AssetPipeline
 
-
-
   # Run Dragonfly as middleware
   use Dragonfly::Middleware
 
@@ -40,20 +39,15 @@ class App < Sinatra::Base
     cache_control :no_store
 
     @selected = :home
-
     photos = Photo.find_by_category('featured').shuffle
-
     @photos = photos[0..11]
     @fadein_photos = photos[12..-1]
-
     erb :index
   end
 
   get '/gallery' do
     @selected = :gallery
-
     @photos = Photo.find_by_categories(['featured','gallery'])
-
     erb :gallery
   end
 
