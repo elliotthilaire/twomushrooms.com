@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'sinatra/asset_pipeline'
 require 'json'
 require 'active_support/core_ext/integer/inflections'
+require 'sass'
 
 require './photo_model.rb'
 
@@ -24,7 +25,7 @@ class App < Sinatra::Base
   register Sinatra::AssetPipeline
 
 
-   
+
   # Run Dragonfly as middleware
   use Dragonfly::Middleware
 
