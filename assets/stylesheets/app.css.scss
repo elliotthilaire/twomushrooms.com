@@ -91,6 +91,7 @@ color:#555;
   text-align:center;
   padding:100px;
 }
+
 /* gallery page */
 .gallery .fancybox > img {
   border:solid;
@@ -106,7 +107,9 @@ color:#555;
   height: 100%;
   position: absolute;
   left:0;
-
+  display: flex; /* add */
+  justify-content: center; /* add to align horizontal */
+  align-items: center; /* add to align vertical */
 }
 .gallery .photo a img {
   max-width:100%;

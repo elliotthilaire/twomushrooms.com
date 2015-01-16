@@ -7,11 +7,3 @@
 
 http://www.jacklmoore.com/colorbox/
 
-
-TODO:
-
-
-
-next previous in gallery
-click on home page image go to gallery
-nicer watermark
