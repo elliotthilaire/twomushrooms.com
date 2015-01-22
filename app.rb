@@ -1,6 +1,7 @@
 
 require 'sinatra/base'
 require 'sinatra/asset_pipeline'
+require 'sinatra/partial'
 require 'json'
 require 'active_support/core_ext/integer/inflections'
 require 'sass'
@@ -24,7 +25,10 @@ class App < Sinatra::Base
   set :assets_css_compressor, :sass
   set :assets_js_compressor, :uglifier
   register Sinatra::AssetPipeline
-
+  
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
+  
   # Run Dragonfly as middleware
   use Dragonfly::Middleware
 

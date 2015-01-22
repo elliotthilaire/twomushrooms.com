@@ -2,6 +2,7 @@
 source 'http://rubygems.org'
 
 gem 'sinatra'
+gem 'sinatra-partial', require: 'sinatra/partial'
 # gem 'sinatra-thumbnails', :require => "sinatra/thumbnails"
 gem 'json'
 gem 'chronic'
