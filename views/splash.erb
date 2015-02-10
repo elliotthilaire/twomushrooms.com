@@ -8,6 +8,8 @@
   height:100%;
   width:100%;
   z-index:999;
+
+  display:none;
 }
 
 .splash-container {
@@ -39,11 +41,11 @@
 
 <script>
   $(document).ready(function(e){
+
     var time = new Date().getTime();
     // If the user has not visited in a week show splash page
-    if (time - localStorage.getItem('splash') < 604800000){
-      $("#splash").hide();
-    } else {
+    if (time - localStorage.getItem('splash') > 604800000){
+      $("#splash").show();
       $("#splash").delay(4200).fadeOut(2000);
       var time = new Date().getTime();
       localStorage.setItem('splash', time);
