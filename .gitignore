@@ -3,6 +3,7 @@
 *.log
 content/
 public/thumbnails/
+
 log/
 config/newrelic.yml
 .sass-cache
