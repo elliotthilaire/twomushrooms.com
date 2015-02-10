@@ -29,6 +29,8 @@ class App < Sinatra::Base
   register Sinatra::Partial
   set :partial_template_engine, :erb
   
+  enable :sessions
+
   # Run Dragonfly as middleware
   use Dragonfly::Middleware
 
@@ -47,6 +49,10 @@ class App < Sinatra::Base
     @photos = photos[0..11]
     @fadein_photos = photos[12..-1]
     erb :index
+  end
+
+  after '/' do
+    session[:no_splash] = true
   end
 
   get '/gallery' do

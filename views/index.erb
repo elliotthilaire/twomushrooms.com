@@ -1,5 +1,8 @@
 
-<%= partial 'splash' %>
+<% if !session[:no_splash] %>
+  <%= partial 'splash' %>
+<% end %>
+
 
 <div class="row">
   <div class="col-sm-12">
