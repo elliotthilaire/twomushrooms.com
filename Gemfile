@@ -16,6 +16,7 @@ gem 'newrelic_rpm'
 gem 'sinatra-asset-pipeline'
 gem 'sass', :require => 'sass'
 gem 'uglifier'
+gem 'rack-cache'
 
 group :development do
   gem 'guard'
