@@ -4,7 +4,7 @@ require './dragonfly/orientation_analyser'
 
 Dragonfly.app.configure do
 
-  response_header 'Cache-Control', 'public, max-age=86400'
+  response_header 'Cache-Control', 'public, max-age=604800'
 
   secret ENV['DRAGONFLY_SECRET']
 
