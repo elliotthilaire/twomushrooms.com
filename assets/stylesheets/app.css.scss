@@ -70,16 +70,14 @@ a:focus { /* remove outline for clicked on links */
 }
 
 .image-box .share-buttons {
-position:relative;
-float:right;
+  position:relative;
+  float:right;
 }
 
 .image-box .info {text-align:left;
-  font-size:200%;
-font-style:bold;
-color:#555;
-
-
+  font-size:1.5rem;
+  font-style:bold;
+  color:#555;
 }
 
 .share-buttons {padding-top:10px;}
@@ -128,7 +126,7 @@ color:#555;
   width:100%;
 }
 .about p {
-  font-size:1.2em;
+  font-size:1.8rem;
   color:hsl(0,0%,70%);
 }
 .about h4 {
