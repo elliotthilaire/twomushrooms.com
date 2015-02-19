@@ -1,6 +1,7 @@
 
 require 'sinatra/base'
-require 'sinatra/asset_pipeline'
+#require 'sinatra/asset_pipeline'
+require 'sinatra/assetpack'
 require 'sinatra/partial'
 require 'json'
 require 'active_support/core_ext/integer/inflections'
@@ -22,9 +23,40 @@ class App < Sinatra::Base
   set :logging, true
   set :dump_errors, true
 
-  set :assets_css_compressor, :sass
-  set :assets_js_compressor, :uglifier
-  register Sinatra::AssetPipeline
+  #set :assets_css_compressor, :sass
+  #set :assets_js_compressor, :uglifier
+  #register Sinatra::AssetPipeline
+
+
+  # configuration for sinatra-assetpack
+  set :root, File.dirname(__FILE__) # You must set app root 
+
+  register Sinatra::AssetPack
+
+  assets {
+    serve '/js',     from: 'assets/javascripts'        
+    serve '/css',    from: 'assets/stylesheets'      
+    serve '/images', from: 'assets/images'    
+
+    # The second parameter defines where the compressed version will be served.
+    # (Note: that parameter is optional, AssetPack will figure it out.)
+    # The final parameter is an array of glob patterns defining the contents
+    # of the package (as matched on the public URIs, not the filesystem)
+    js :app, '/js/app.js', [
+      '/js/application.js',
+      '/js/vendor/**/*.js',
+      '/js/lib/**/*.js',
+    ]
+
+    css :application, '/css/application.css', [
+      '/css/app.css'
+    ]
+
+    js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
+    css_compression :simple   # :simple | :sass | :yui | :sqwish
+  }
+
+
   
   register Sinatra::Partial
   set :partial_template_engine, :erb
@@ -32,10 +64,14 @@ class App < Sinatra::Base
   # Run Dragonfly as middleware
   use Dragonfly::Middleware
 
+
+
   # redirect trailing slashes
   get %r{(.+)/$} do |r|
     redirect r
   end
+
+
 
   get '/' do
 

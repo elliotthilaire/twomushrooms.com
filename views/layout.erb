@@ -4,20 +4,21 @@
     <title>Photography by Elliott Hilaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" >
-    <link rel="stylesheet" href="<%= stylesheet_path 'app' %>" media="screen">
     <meta name=”description” content=”Elliott is a software/web developer from Brisbane, Australia. When outdoors he will either be on a bike or pestering insects for their photos.”>
+
+    <!-- load css from sinatra-assetpacl -->
+    <%= css :application, :media => 'screen' %>
+
   </head>
 
   <body>
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <!--<script type="text/javascript" src="/fancybox/lib/jquery.mousewheel.pack.js"></script>
-    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
-    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-media.js"></script>-->
+    
+    <!-- load js from sinatra-assetpack -->
+    <%= js  :app %>
+
     <div id="top"></div>
     <div class="container">
       <!-- nagivation menu -->
@@ -48,6 +49,8 @@
       <%= yield %>
 
     </div><!--.container-->
+
+
 
 <%if settings.environment  == :production%>
 <script>
