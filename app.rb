@@ -52,7 +52,7 @@ class App < Sinatra::Base
 
     css :app, '/css/app.css', [
       '/bower_components/bootstrap/dist/css/bootstrap.css',
-      '/bower_components/font-awesome/css/font-awesome.css',
+      #'/bower_components/font-awesome/css/font-awesome.css',
       '/css/application.css'
     ]
 
