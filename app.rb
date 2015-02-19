@@ -43,29 +43,23 @@ class App < Sinatra::Base
     # (Note: that parameter is optional, AssetPack will figure it out.)
     # The final parameter is an array of glob patterns defining the contents
     # of the package (as matched on the public URIs, not the filesystem)
-
-    css :libs, [
-      '/bower_components/bootstrap/dist/css/bootstrap.css',
-      '/bower_components/font-awesome/css/font-awesome.css'
-    ]
     
-    js :libs, [
-      '/bower_components/jquery/dist/jquery.js',
-      '/bower_components/bootstrap/dist/js/bootstrap.js'
-    ]
-
     js :app, '/js/app.js', [
-      '/js/application.js',
-      '/js/vendor/**/*.js',
-      '/js/lib/**/*.js',
+      '/bower_components/jquery/dist/jquery.min.js',
+      '/bower_components/bootstrap/dist/js/bootstrap.min.js',
+      '/js/application.js'
     ]
 
     css :app, '/css/app.css', [
+      '/bower_components/bootstrap/dist/css/bootstrap.css',
+      '/bower_components/font-awesome/css/font-awesome.css',
       '/css/application.css'
     ]
 
     js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
     css_compression :simple   # :simple | :sass | :yui | :sqwish
+
+    prebuild true
   }
 
 
