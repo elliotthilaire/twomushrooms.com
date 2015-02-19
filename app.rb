@@ -36,20 +36,32 @@ class App < Sinatra::Base
   assets {
     serve '/js',     from: 'assets/javascripts'        
     serve '/css',    from: 'assets/stylesheets'      
-    serve '/images', from: 'assets/images'    
+    serve '/images', from: 'assets/images'
+    serve '/bower_components', from: 'assets/bower_components'
 
     # The second parameter defines where the compressed version will be served.
     # (Note: that parameter is optional, AssetPack will figure it out.)
     # The final parameter is an array of glob patterns defining the contents
     # of the package (as matched on the public URIs, not the filesystem)
+
+    css :libs, [
+      '/bower_components/bootstrap/dist/css/bootstrap.css',
+      '/bower_components/font-awesome/css/font-awesome.css'
+    ]
+    
+    js :libs, [
+      '/bower_components/jquery/dist/jquery.js',
+      '/bower_components/bootstrap/dist/js/bootstrap.js'
+    ]
+
     js :app, '/js/app.js', [
       '/js/application.js',
       '/js/vendor/**/*.js',
       '/js/lib/**/*.js',
     ]
 
-    css :application, '/css/application.css', [
-      '/css/app.css'
+    css :app, '/css/app.css', [
+      '/css/application.css'
     ]
 
     js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify

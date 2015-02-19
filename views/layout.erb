@@ -3,21 +3,18 @@
   <head>
     <title>Photography by Elliott Hilaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" >
     <meta name=”description” content=”Elliott is a software/web developer from Brisbane, Australia. When outdoors he will either be on a bike or pestering insects for their photos.”>
-
     <!-- load css from sinatra-assetpacl -->
-    <%= css :application, :media => 'screen' %>
-
+    <%= css :libs, :media => 'screen' %>
+    <%= css :app, :media => 'screen' %>
   </head>
 
-  <body>
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    
+  <body>    
+
     <!-- load js from sinatra-assetpack -->
-    <%= js  :app %>
+    <!-- this needs to stay near the top of the file until js is moved out of html -->
+    <%= js :libs %>
+    <%= js :app %>
 
     <div id="top"></div>
     <div class="container">
