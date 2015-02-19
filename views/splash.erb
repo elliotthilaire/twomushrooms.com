@@ -46,7 +46,7 @@
     // If the user has not visited in a week show splash page
     if (time - localStorage.getItem('splash') > 604800000){
       $("#splash").show();
-      $("#splash").delay(4200).fadeOut(2000);
+      $("#splash").delay(2000).fadeOut(1000);
       var time = new Date().getTime();
       localStorage.setItem('splash', time);
     }
