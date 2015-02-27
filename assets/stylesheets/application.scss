@@ -28,6 +28,11 @@ a:focus { /* remove outline for clicked on links */
   background:transparent;
 }
 
+footer {
+  padding-top:2rem;
+  padding-bottom:2rem;
+}
+
 /* index page */
 .box {
   position:relative;
@@ -144,6 +149,10 @@ a:focus { /* remove outline for clicked on links */
 }
 .about #email {
   width:60%;
+}
+
+.fa {
+  margin-right:2rem;
 }
 
 /* other stuff */
