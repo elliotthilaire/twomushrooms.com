@@ -1,6 +1,7 @@
 # README.md
 
-This is the code behind http://photography.elliotthilaire.net
+This is the code behind http://twomushrooms.com, a showcase of photos taken .
+
 
 ## Requirements
 
@@ -21,6 +22,7 @@ This is the code behind http://photography.elliotthilaire.net
  - Add next and previous buttons when viewing images in the gallery
  - Create a nicer watermark
  - Move images out of ./content/ folder and onto S3 or similar.
+ - Move site over to static site generator such as middleman.
 
 ## Contribution
 
