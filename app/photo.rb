@@ -69,6 +69,4 @@ class Photo
     Dir.glob(search_string).collect { |pathname| new(pathname: pathname) }
   end
 
-
-
 end
