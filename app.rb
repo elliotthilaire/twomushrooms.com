@@ -29,7 +29,8 @@ class App < Sinatra::Base
 
 
   # configuration for sinatra-assetpack
-  set :root, File.dirname(__FILE__) # You must set app root 
+  # You must set app root 
+  set :root, File.dirname(__FILE__)
 
   register Sinatra::AssetPack
 
@@ -81,11 +82,12 @@ class App < Sinatra::Base
 
   get '/' do
 
-    # Don't cache the index page as it's random
-    cache_control :no_store
+   # don't cache index. It's randomly generated
+    cache_control :no_store 
 
     @selected = :home
     photos = Photo.find_by_category('featured').shuffle
+    
     @photos = photos[0..11]
     @fadein_photos = photos[12..-1]
     erb :index

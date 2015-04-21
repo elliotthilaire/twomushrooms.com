@@ -1,27 +1,23 @@
 require 'chronic'
 require 'exifr'
 
-require './photofile_model.rb'
-
 # Extra methods for Photo
-class Photo < PhotoFile
+class Photo
+
+  attr_accessor :pathname, :category, :slug, :filename, :title, :caption, :date_taken
 
   @path = './content' # no trailing slash
 
-  def filename
-    File.basename(@pathname) # ant-on-blue-flower.jpg
-  end
+  def initialize(params = {})
+    @pathname = params[:pathname]
+    @slug = File.basename(@pathname, '.*')
+    @category = File.dirname(@pathname).split('/').last
 
-  def title
-    slug.gsub('-', ' ') # ant on blue flower
-  end
-
-  def caption
-    "Photo of #{title}" # Photo of ant on blue flower
-  end
-
-  def date_taken
-    EXIFR::JPEG.new(@pathname).date_time_original
+    #readible
+    @filename = File.basename(@pathname) # ant-on-blue-flower.jpg
+    @title = slug.gsub('-', ' ') # ant on blue flower
+    @caption = "Photo of #{title}" # Photo of ant on blue flower
+    @date_taken = EXIFR::JPEG.new(@pathname).date_time_original
   end
 
   def image
@@ -32,11 +28,49 @@ class Photo < PhotoFile
     date_taken <=> other.date_taken
   end
 
-  # file modified time
-  def mtime
-    File.mtime(@pathname) # file modified time
+
+
+  # Class methods
+
+  def self.all
+    prepare
   end
 
-  #######
+  def self.find_by_category(category)
+    prepare(category: category)
+  end
+
+  # Takes an array of categories
+  # Returns an array of photos
+  # e.g. find_by_categories(['featured', 'gallery'])
+  def self.find_by_categories(array)
+    photos = []
+
+    array.each do |category| 
+      photos.push *find_by_category(category)
+    end
+
+    photos
+
+  end
+
+  def self.find(slug)
+    prepare(slug: slug).first || nil
+  end
+
+
+  protected
+
+  # Returns an array of photo objects
+  def self.prepare(params = {})
+    category = params[:category] || '*'
+    slug = params[:slug] || '*'
+ 
+    search_string = "#{@path}/#{category}/#{slug}.{jpg}"  
+    
+    Dir.glob(search_string).collect { |pathname| new(pathname: pathname) }
+  end
+
+
 
 end
