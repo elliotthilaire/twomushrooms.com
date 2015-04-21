@@ -4,29 +4,32 @@ source 'http://rubygems.org'
 gem 'sinatra'
 gem 'sinatra-partial', require: 'sinatra/partial'
 gem 'sinatra-assetpack'
-# gem 'sinatra-thumbnails', :require => "sinatra/thumbnails"
-gem 'json'
-gem 'chronic'
-gem 'activesupport'
-gem 'exifr'
-gem 'dragonfly'
-gem 'dragonfly-s3_data_store'
-gem 'dotenv'
-gem 'aws-sdk'
-gem 'newrelic_rpm'
-#gem 'sinatra-asset-pipeline'
+
 gem 'sass', :require => 'sass'
+gem 'exifr'          # read date taken from exif image exif data
+gem 'dragonfly'      # on the fly image processing for watermarks and thumbnails
+
+gem 'dotenv'
 gem 'uglifier'
 gem 'rack-cache'
+gem 'newrelic_rpm'
 
 group :development do
-  gem 'guard'
-  gem 'rb-fsevent'
-  gem 'rb-readline'
   gem 'guard-shotgun'
   gem 'guard-livereload', require: false
   gem 'thin'
   gem 'shotgun'
+  gem 'rb-fsevent' # effecient file system polling for mac, used by new relic
+
 end
+
+# previously used gems
+# gem 'sinatra-thumbnails'		  # replaced by dragonfly
+# gem 'sinatra-asset-pipeline'	  # replaced by sinatra-assetpack
+# gem 'chronic'                   # natual language formatting of dates
+# gem 'json'
+# gem 'activesupport'
+# gem 'guard'
+# gem 'rb-readline'
 
 ruby '2.1.2'
