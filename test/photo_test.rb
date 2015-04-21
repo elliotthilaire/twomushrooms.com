@@ -1,9 +1,6 @@
 
 require File.expand_path '../test_helper.rb', __FILE__
 
-require File.expand_path '../../lib/image.rb', __FILE__
-
-
 class ImageTest < MiniTest::Unit::TestCase
 
   def setup
