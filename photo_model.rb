@@ -10,14 +10,14 @@ class Photo
 
   def initialize(params = {})
     @pathname = params[:pathname]
-    @slug = File.basename(@pathname, '.*')
-    @category = File.dirname(@pathname).split('/').last
-
-    #readible
-    @filename = File.basename(@pathname) # ant-on-blue-flower.jpg
-    @title = slug.gsub('-', ' ') # ant on blue flower
-    @caption = "Photo of #{title}" # Photo of ant on blue flower
+    @slug = File.basename(@pathname, '.*') # e.g. # ant-on-blue-flower
+    @category = File.dirname(@pathname).split('/').last # e.g. featured
+    @filename = File.basename(@pathname) # e.g. ant-on-blue-flower.jpg
+    @title = slug.gsub('-', ' ') # e.g. ant on blue flower
+    @caption = "Photo of #{title}" # e.g. Photo of ant on blue flower
     @date_taken = EXIFR::JPEG.new(@pathname).date_time_original
+
+    
   end
 
   def image
@@ -27,8 +27,6 @@ class Photo
   def <=>(other)
     date_taken <=> other.date_taken
   end
-
-
 
   # Class methods
 
