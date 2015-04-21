@@ -1,10 +1,10 @@
 
 # https://github.com/kalasjocke/sinatra-asset-pipeline
-require 'sinatra/asset_pipeline/task'
+#require 'sinatra/asset_pipeline/task'
+#Sinatra::AssetPipeline::Task.define! App
+
+
 require './app'
-
-Sinatra::AssetPipeline::Task.define! App
-
 
 # testing
 require 'rake/testtask'
