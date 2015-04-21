@@ -1,7 +1,6 @@
 # README.md
 
-This is the code behind http://twomushrooms.com, a showcase of photos taken .
-
+This is the code behind http://twomushrooms.com, a project to share some of the photos I have taken.
 
 ## Requirements
 
@@ -11,7 +10,7 @@ This is the code behind http://twomushrooms.com, a showcase of photos taken .
 ## Deployment
 
   1. bundle install
-  2. Put images in ./content/featured, gallery, hidden
+  2. Put images in ./content/featured, gallery or hidden
   3. Run rake assets:precompile
   4. Copy newrelic.yml file from New Relic into config/newrelic.yml
   5. Launch it.
@@ -29,4 +28,6 @@ This is the code behind http://twomushrooms.com, a showcase of photos taken .
 I would love for you to review my code and help me improve it.
 Feel free to get in touch or fork and make pull requests.
 
+## License 
 
+MIT
