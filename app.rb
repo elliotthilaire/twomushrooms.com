@@ -116,10 +116,4 @@ class App < Sinatra::Base
     erb :error
   end
 
-  # a route for testing
-  get '/image/:size/:image' do |size, image|
-    uid = Dragonfly.app.fetch_file("content/featured/#{image}").thumb(size).watermark
-    uid.url
-  end
-
 end
