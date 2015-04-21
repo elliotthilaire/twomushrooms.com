@@ -2,6 +2,8 @@ require 'dragonfly'
 require_relative 'watermark_processor'
 require_relative 'orientation_analyser'
 
+Dragonfly.logger = Logger.new('log/dragonfly.log')
+
 Dragonfly.app.configure do
 
   response_header 'Cache-Control', 'public, max-age=604800'
