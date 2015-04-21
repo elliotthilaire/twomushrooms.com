@@ -29,12 +29,16 @@ class App < Sinatra::Base
     erb :about
   end
 
-  get '/gallery/:photo' do
+  get '/:photo' do
     @selected = :gallery
     @photo = Photo.find(params[:photo]) || fail(Sinatra::NotFound)
     erb :photo
   end
 
+  # redirect from /gallery/blue-ant to /blue-ant
+  get '/gallery/:photo' do
+    redirect "/#{params[:photo]}"
+  end
 
   not_found do
      status 404
