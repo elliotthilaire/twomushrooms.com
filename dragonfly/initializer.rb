@@ -1,6 +1,6 @@
 require 'dragonfly'
-require './dragonfly/watermark_processor'
-require './dragonfly/orientation_analyser'
+require_relative 'watermark_processor'
+require_relative 'orientation_analyser'
 
 Dragonfly.app.configure do
 
