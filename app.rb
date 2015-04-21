@@ -13,8 +13,8 @@ Dotenv.load
 require_relative 'app/photo'
 require_relative 'app/routes'
 
-# Load Dragonfly configuration
-require './dragonfly/initializer.rb'
+# load dragonfly configuration
+require_relative 'dragonfly/initializer.rb'
 
 
 class App < Sinatra::Base
@@ -22,13 +22,22 @@ class App < Sinatra::Base
   set :logging, true
   set :dump_errors, true
 
+  # run dragonfly as middleware
+  # dragonfly listens for image requests and thumbnails / watermarks them
+  use Dragonfly::Middleware
+
+  # enable the use of partials
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
+
+  #
   # sinatra-assetpack require :root to be configured
   set :root, File.dirname(__FILE__)
 
+  # use sinatra-assetpack for 
   register Sinatra::AssetPack
 
-  assets {
-
+  assets do 
     serve '/js',     from: 'assets/javascripts'        
     serve '/css',    from: 'assets/stylesheets'      
     serve '/images', from: 'assets/images'
@@ -48,13 +57,7 @@ class App < Sinatra::Base
     js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
     css_compression :simple   # :simple | :sass | :yui | :sqwish
 
+    # compile assets when app launched (default is on first request)
     prebuild true
-  }
-
-  register Sinatra::Partial
-  set :partial_template_engine, :erb
-  
-  # Run Dragonfly as middleware
-  use Dragonfly::Middleware
-
+  end
 end
