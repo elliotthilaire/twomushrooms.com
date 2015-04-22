@@ -12,10 +12,8 @@ Dotenv.load
 
 require_relative 'app/photo'
 require_relative 'app/routes'
-
-# load dragonfly configuration
+require_relative 'app/redirects'
 require_relative 'dragonfly/initializer.rb'
-
 
 class App < Sinatra::Base
 
