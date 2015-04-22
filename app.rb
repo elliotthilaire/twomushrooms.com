@@ -3,7 +3,6 @@ require 'sinatra/base'
 require 'sinatra/assetpack'
 require 'sinatra/partial'
 require 'sass'
-require 'uglifier'
 require 'dragonfly'
 
 # load environment variables from file

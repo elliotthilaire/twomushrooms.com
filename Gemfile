@@ -10,7 +10,6 @@ gem 'exifr'          # read date taken from exif image exif data
 gem 'dragonfly'      # on the fly image processing for watermarks and thumbnails
 
 gem 'dotenv'
-gem 'uglifier'
 gem 'rack-cache'
 gem 'newrelic_rpm'
 
@@ -31,5 +30,6 @@ end
 # gem 'activesupport'
 # gem 'guard'
 # gem 'rb-readline'
+# gem 'uglifier'
 
 ruby '2.1.2'
