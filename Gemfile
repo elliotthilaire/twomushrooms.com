@@ -19,7 +19,6 @@ group :development do
   gem 'thin'
   gem 'shotgun'
   gem 'rb-fsevent' # effecient file system polling for mac, used by newrelic
-
 end
 
 # previously used gems
