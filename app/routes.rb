@@ -1,3 +1,4 @@
+
 class App < Sinatra::Base
 
   # redirect trailing slashes
