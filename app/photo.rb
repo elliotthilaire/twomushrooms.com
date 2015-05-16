@@ -53,8 +53,6 @@ class Photo
     prepare(slug: slug).first
   end
 
-  private
-
   # return an array of photo objects from the file system
   # takes a params hash to filter category or slug
   # e.g. prepare(category: 'featured')
