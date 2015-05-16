@@ -1,7 +1,7 @@
 
 class App < Sinatra::Base
   get '/' do
-    cache_control :no_store # / is randomly generated, don't cache it
+    cache_control :no_store # this page is randomly generated, don't cache it
 
     photos = Photo.find_by_category('featured').shuffle
 
