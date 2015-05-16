@@ -5,7 +5,7 @@ gem 'sinatra'
 gem 'sinatra-partial', require: 'sinatra/partial'
 gem 'sinatra-assetpack'
 
-gem 'sass', :require => 'sass'
+gem 'sass', require: 'sass'
 gem 'exifr'          # read date_taken from image exif data
 gem 'dragonfly'      # on the fly image processing for watermarks and thumbnails
 

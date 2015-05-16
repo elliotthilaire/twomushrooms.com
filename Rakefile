@@ -1,8 +1,7 @@
 
 # https://github.com/kalasjocke/sinatra-asset-pipeline
-#require 'sinatra/asset_pipeline/task'
-#Sinatra::AssetPipeline::Task.define! App
-
+# require 'sinatra/asset_pipeline/task'
+# Sinatra::AssetPipeline::Task.define! App
 
 require './app'
 

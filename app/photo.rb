@@ -33,7 +33,7 @@ class Photo
   def self.all
     prepare
   end
- 
+
   # return array of photos for one category
   def self.find_by_category(category)
     prepare(category: category)
@@ -43,7 +43,7 @@ class Photo
   # categories taken in as an array of strings
   # e.g. find_by_categories(['featured', 'gallery'])
   def self.find_by_categories(categories)
-    categories.reduce([]) { |photos, category| photos.push *find_by_category(category) }  
+    categories.reduce([]) { |photos, category| photos.push *find_by_category(category) }
   end
 
   # return a single photo object
@@ -64,7 +64,7 @@ class Photo
     category = params[:category] || '*'
     slug = params[:slug] || '*'
 
-    search_string = "#{@path}/#{category}/#{slug}.{jpg}"  
+    search_string = "#{@path}/#{category}/#{slug}.{jpg}"
     Dir.glob(search_string).collect { |pathname| new(pathname: pathname) }
   end
 end

@@ -15,7 +15,6 @@ require_relative 'app/redirects'
 require_relative 'dragonfly/initializer.rb'
 
 class App < Sinatra::Base
-
   set :logging, true
   set :dump_errors, true
 
@@ -31,15 +30,15 @@ class App < Sinatra::Base
   # sinatra-assetpack require :root to be configured
   set :root, File.dirname(__FILE__)
 
-  # use sinatra-assetpack for 
+  # use sinatra-assetpack for
   register Sinatra::AssetPack
 
-  assets do 
-    serve '/js',     from: 'assets/javascripts'        
-    serve '/css',    from: 'assets/stylesheets'      
+  assets do
+    serve '/js',     from: 'assets/javascripts'
+    serve '/css',    from: 'assets/stylesheets'
     serve '/images', from: 'assets/images'
     serve '/bower_components', from: 'assets/bower_components'
-    
+
     js :app, '/js/app.js', [
       '/bower_components/jquery/dist/jquery.min.js',
       '/bower_components/bootstrap/dist/js/bootstrap.min.js',
@@ -51,7 +50,7 @@ class App < Sinatra::Base
       '/css/application.css'
     ]
 
-    js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
+    js_compression :jsmin    # :jsmin | :yui | :closure | :uglify
     css_compression :simple   # :simple | :sass | :yui | :sqwish
 
     # compile assets when app launched (default is on first request)
