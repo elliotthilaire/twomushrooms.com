@@ -1,4 +1,4 @@
-# redirects incase I move things around, or change photo names
+
 class App < Sinatra::Base
   # redirect trailing slashes
   get %r{(.+)/$} do |r|

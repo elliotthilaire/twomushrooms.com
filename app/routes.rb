@@ -1,9 +1,9 @@
+
 class App < Sinatra::Base
   get '/' do
-    # don't cache index. It's randomly generated
-    cache_control :no_store
-
+    cache_control :no_store # / is randomly generated, don't cache it
     @selected = :home
+
     photos = Photo.find_by_category('featured').shuffle
 
     @photos = photos[0..11]
