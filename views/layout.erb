@@ -33,9 +33,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li class="<%= "active" if @selected == :home %>"><a href="/">Home</a></li>
-                <li class="<%= "active" if @selected == :gallery %>"><a href="/gallery">Gallery</a></li>
-                <li class="<%= "active" if @selected == :about %>"><a href="/about">About</a></li>
+                <li class="<%= "active" if request.path_info == '/' %>"><a href="/">Home</a></li>
+                <li class="<%= "active" if request.path_info == '/gallery' %>"><a href="/gallery">Gallery</a></li>
+                <li class="<%= "active" if request.path_info == '/about' %>"><a href="/about">About</a></li>
+
+
               </ul>
             </div><!-- /.navbar-collapse -->
           </nav>
