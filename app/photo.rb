@@ -1,7 +1,6 @@
 require 'exifr'
 
 class Photo
-
   attr_reader :pathname, :category, :slug, :filename, :title, :caption, :date_taken
 
   @path = './content' # no trailing slash
@@ -51,7 +50,7 @@ class Photo
   # takes a slug as an input
   # e.g. find('ant-on-blue-flower')
   def self.find(slug)
-    prepare(slug: slug).first || nil
+    prepare(slug: slug).first
   end
 
   private
@@ -68,6 +67,4 @@ class Photo
     search_string = "#{@path}/#{category}/#{slug}.{jpg}"  
     Dir.glob(search_string).collect { |pathname| new(pathname: pathname) }
   end
-
-
 end

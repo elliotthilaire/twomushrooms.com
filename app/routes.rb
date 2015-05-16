@@ -1,6 +1,4 @@
-
 class App < Sinatra::Base
-
   get '/' do
    # don't cache index. It's randomly generated
     cache_control :no_store 
@@ -29,5 +27,4 @@ class App < Sinatra::Base
     @photo = Photo.find(params[:photo]) || fail(Sinatra::NotFound)
     erb :photo
   end
-
 end
