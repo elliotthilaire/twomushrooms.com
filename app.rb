@@ -14,6 +14,9 @@ require_relative 'app/routes'
 require_relative 'app/redirects'
 require_relative 'dragonfly/initializer.rb'
 
+# Add to Sass load_path so @import works properly.
+Sass.load_paths << "assets/stylesheets"
+
 class App < Sinatra::Base
   set :logging, true
   set :dump_errors, true
@@ -50,7 +53,7 @@ class App < Sinatra::Base
     ]
 
     js_compression :jsmin    # :jsmin | :yui | :closure | :uglify
-    css_compression :simple   # :simple | :sass | :yui | :sqwish
+    css_compression :sass   # :simple | :sass | :yui | :sqwish
 
     # compile assets when app launched (default is on first request)
     prebuild true
