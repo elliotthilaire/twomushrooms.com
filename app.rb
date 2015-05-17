@@ -26,7 +26,6 @@ class App < Sinatra::Base
   register Sinatra::Partial
   set :partial_template_engine, :erb
 
-  #
   # sinatra-assetpack require :root to be configured
   set :root, File.dirname(__FILE__)
 
@@ -42,12 +41,12 @@ class App < Sinatra::Base
     js :app, '/js/app.js', [
       '/bower_components/jquery/dist/jquery.min.js',
       '/bower_components/bootstrap/dist/js/bootstrap.min.js',
-      '/js/application.js'
+      '/js/*.js'
     ]
 
     css :app, '/css/app.css', [
       '/bower_components/bootstrap/dist/css/bootstrap.css',
-      '/css/application.css'
+      '/css/main.css'
     ]
 
     js_compression :jsmin    # :jsmin | :yui | :closure | :uglify

@@ -1,0 +1,30 @@
+/* photo page */
+.vertical-container {
+  display: -webkit-flex;
+  display: flex;
+  height:100%;
+}
+.vertically-centered {
+    margin: auto;
+    margin-top:0px;
+    max-height:100%;
+    text-align:center;
+}
+
+.image-box img {
+    max-width:100%;
+    max-height:100%;
+}
+
+.image-box .share-buttons {
+  position:relative;
+  float:right;
+}
+
+.image-box .info {text-align:left;
+  font-size:1.5rem;
+  font-style:bold;
+  color:#555;
+}
+
+.share-buttons {padding-top:10px;}

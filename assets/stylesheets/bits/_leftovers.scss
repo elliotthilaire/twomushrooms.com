@@ -1,0 +1,46 @@
+_leftovers.scss
+
+/* error page */
+.error{
+  text-align:center;
+  padding:100px;
+}
+
+/* other stuff */
+.fill{
+    max-width:calc(100% - 60px);
+    max-height:100%;
+}
+
+
+#link_to_top {
+  position:fixed;
+  bottom:30px;
+  left:30px;
+}
+
+.xhr-fill{
+    max-height:100%;
+}
+.photo {
+  text-align:center;
+  vertical-align:middle;
+height:calc(100% - 120px);
+}
+
+ul.like-buttons{
+float: left;
+list-style: none;
+margin: 0px 0px 0px 0px;
+padding: 0;
+}
+
+ul.like-buttons li{
+    display: block;
+    float: left;
+    margin-right: 0px;
+}
+li.twitter-like{
+    margin-top: 2px;
+}
+

@@ -1,0 +1,22 @@
+
+/* index page */
+.box {
+  position:relative;
+  float:left;
+  width: 25%;
+  box-sizing: border-box;
+  -moz-box-sizing:border-box;
+
+  margin:0px;
+  padding:0px;
+  border:1px solid hsla(0,0%,0%,0.7);
+}
+.box a { width:100%; }
+.box a img { width:100%; }
+.box .top { }
+.box .bottom {
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:-1
+}
