@@ -43,7 +43,7 @@ class Photo
   # categories taken in as an array of strings
   # e.g. find_by_categories(['featured', 'gallery'])
   def self.find_by_categories(categories)
-    categories.reduce([]) { |photos, category| photos.push *find_by_category(category) }
+    categories.reduce([]) { |photos, category| photos.concat find_by_category(category) }
   end
 
   # return a single photo object
