@@ -9,6 +9,7 @@ body {
   background-image: image-url('textures/dark_dotted2/dark_dotted2.png');
   background-repeat:repeat;
 }
+
 a:focus { /* remove outline for clicked on links */
   outline:none;
 }
@@ -32,3 +33,4 @@ footer {
   padding-top:2rem;
   padding-bottom:2rem;
 }
+

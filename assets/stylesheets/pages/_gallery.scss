@@ -21,3 +21,16 @@
   max-width:100%;
   max-height: 100%;
 }
+
+.photo {
+  text-align:center;
+  vertical-align:middle;
+  height:calc(100% - 120px);
+}
+#link_to_top {
+  position:fixed;
+  bottom:30px;
+  left:30px;
+}
+
+
