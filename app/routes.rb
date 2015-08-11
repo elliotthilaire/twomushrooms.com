@@ -1,26 +1,42 @@
 
 class App < Sinatra::Base
   get '/' do
-    @twittercard = { type: 'summary_large_image' }
-
     cache_control :no_store # this page is randomly generated, don't cache it
 
     photos = Photo.find_by_category('featured').shuffle
 
     @photos = photos[0..11]
     @fadein_photos = photos[12..-1]
+
+    @opengraph = {
+      url: url,
+      title: 'Two Mushrooms',
+      description: 'Photography by Elliott Hilaire',
+    }
+    @twittercard = { type: 'summary_large_image' }
+
     erb :index
   end
 
   get '/gallery' do
-    @twittercard = { type: 'summary_large_image' }
-
     @photos = Photo.find_by_categories(%w(featured gallery))
+
+    @opengraph = {
+      url: url,
+      title: 'Two Mushrooms gallery',
+      description: 'Photos by Elliott',
+    }
+    @twittercard = { type: 'summary_large_image' }
 
     erb :gallery
   end
 
   get '/about' do
+    @opengraph = {
+      url: url,
+      title: 'About',
+      description: 'About Elliott',
+    }
     @twittercard = { type: 'summary' }
 
     erb :about
@@ -28,6 +44,7 @@ class App < Sinatra::Base
 
   get '/:photo' do
     @photo = Photo.find(params[:photo]) || fail(Sinatra::NotFound)
+
     @opengraph = {
       url: url,
       title: @photo.title,
