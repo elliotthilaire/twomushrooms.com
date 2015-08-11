@@ -21,6 +21,11 @@ class App < Sinatra::Base
 
   get '/:photo' do
     @photo = Photo.find(params[:photo]) || fail(Sinatra::NotFound)
+    @opengraph = {
+      url: url,
+      title: @photo.title,
+      image: @photo.image.thumb('1200x900').watermark.url,
+    }
     erb :photo
   end
 end
