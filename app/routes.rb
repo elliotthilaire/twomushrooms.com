@@ -19,7 +19,8 @@ class App < Sinatra::Base
   end
 
   get '/gallery' do
-    @photos = Photo.find_by_categories(%w(featured gallery))
+
+    @photos = Photo.find_by_categories(%w(featured gallery)).sort
 
     @opengraph = {
       url: url,

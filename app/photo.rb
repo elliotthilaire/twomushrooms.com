@@ -22,7 +22,7 @@ class Photo
 
   # order photos by the date they were taken
   def <=>(other)
-    date_taken <=> other.date_taken
+    other.date_taken <=> date_taken
   end
 
   ################
