@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Photography by Elliott Hilaire</title>
+    <title>Two Mushrooms (Photography Project by Elliott Hilaire)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Elliott is a software &frasl; web developer from Brisbane, Australia. When outdoors he will either be on a bike or pestering insects for their photos.">
+    <meta name="description" content="I'm a software developer from Brisbane. When I'm outside I will either be on a bike or pestering insects for their photo.">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <!-- load css from sinatra-assetpacl -->
+    <!-- load css from sinatra-assetpack -->
     <%= css :app, :media => 'screen' %>
 
     <% if @opengraph %>
       <meta property="og:site_name" content="Two Mushrooms"/>
       <meta property="og:url" content="<%= @opengraph[:url] %>" />
+      <meta property="og:description" "<%= @opengraph[:description] %>"/>
       <meta property="og:title" content="<%= @opengraph[:title] %>" />
       <meta property="og:image" content="<%= @opengraph[:image] %>" />
     <% end %>
