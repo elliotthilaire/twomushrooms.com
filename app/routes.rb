@@ -24,7 +24,7 @@ class App < Sinatra::Base
     @opengraph = {
       url: url,
       title: @photo.title,
-      image: @photo.image.thumb('1200x900').watermark.url,
+      image: "#{request.base_url}/#{@photo.image.thumb('1200x900').watermark.url}",
     }
     erb :photo
   end
