@@ -16,6 +16,12 @@
       <meta property="og:image" content="<%= @opengraph[:image] %>" />
     <% end %>
 
+    <% if @twittercard %>
+      <meta name="twitter:card" content="<%= @twittercard[:type] %>" />
+      <meta name="twitter:site" content="@elliotthilaire" />
+      <meta name="twitter:creator" content="@elliotthilaire" />
+    <% end %>
+
   </head>
 
   <body>
