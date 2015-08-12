@@ -9,7 +9,7 @@ class App < Sinatra::Base
     @fadein_photos = photos[12..-1]
 
     @opengraph = {
-      url: url,
+      url: "http://twomushrooms.com#{request.path}",
       title: 'Two Mushrooms',
       description: 'Photography by Elliott Hilaire',
     }
@@ -23,7 +23,7 @@ class App < Sinatra::Base
     @photos = Photo.find_by_categories(%w(featured gallery)).sort
 
     @opengraph = {
-      url: url,
+      url: "http://twomushrooms.com#{request.path}",
       title: 'Two Mushrooms gallery',
       description: 'Photos by Elliott',
     }
@@ -34,7 +34,7 @@ class App < Sinatra::Base
 
   get '/about' do
     @opengraph = {
-      url: url,
+      url: "http://twomushrooms.com#{request.path}",
       title: 'About',
       description: 'About Elliott',
     }
@@ -47,10 +47,10 @@ class App < Sinatra::Base
     @photo = Photo.find(params[:photo]) || fail(Sinatra::NotFound)
 
     @opengraph = {
-      url: url,
+      url: "http://twomushrooms.com#{request.path}",
       title: @photo.title,
       description: 'Photo taken by Elliott Hilaire',
-      image: "#{request.base_url}/#{@photo.image.thumb('1200x900').watermark.url}",
+      image: "http://twomushrooms.com#{@photo.image.thumb('1200x900').watermark.url}",
     }
     @twittercard = { type: 'summary_large_image' }
 
