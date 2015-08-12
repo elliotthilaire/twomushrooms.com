@@ -12,6 +12,7 @@ class App < Sinatra::Base
       url: "http://twomushrooms.com#{request.path}",
       title: 'Two Mushrooms',
       description: 'Photography by Elliott Hilaire',
+      image: "http://twomushrooms.com/site-preview.png",
     }
     @twittercard = { type: 'summary_large_image' }
 
@@ -26,6 +27,7 @@ class App < Sinatra::Base
       url: "http://twomushrooms.com#{request.path}",
       title: 'Two Mushrooms gallery',
       description: 'Photos by Elliott',
+      image: "http://twomushrooms.com/site-preview.png",
     }
     @twittercard = { type: 'summary_large_image' }
 
@@ -37,6 +39,7 @@ class App < Sinatra::Base
       url: "http://twomushrooms.com#{request.path}",
       title: 'About',
       description: 'About Elliott',
+      image: "http://twomushrooms.com/site-preview.png",
     }
     @twittercard = { type: 'summary' }
 
