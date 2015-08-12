@@ -12,12 +12,12 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    eventmachine (1.0.7)
+    eventmachine (1.0.8)
     exifr (1.2.3)
     ffi (1.9.10)
     ffi (1.9.10-x86-mingw32)
     formatador (0.2.5)
-    guard (2.12.8)
+    guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
       lumberjack (~> 1.0)
@@ -36,15 +36,15 @@ GEM
       spoon
     http_parser.rb (0.6.0)
     jsmin (1.0.1)
-    listen (3.0.2)
+    listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     lumberjack (1.0.9)
     method_source (0.8.2)
     multi_json (1.11.2)
     nenv (0.2.0)
-    newrelic_rpm (3.12.1.298)
-    notiffany (0.0.6)
+    newrelic_rpm (3.13.0.299)
+    notiffany (0.0.7)
       nenv (~> 0.1)
       shellany (~> 0.0)
     pry (0.10.1)
@@ -103,6 +103,7 @@ DEPENDENCIES
   guard-livereload
   guard-shotgun
   newrelic_rpm
+  pry
   rack-cache
   rb-fsevent
   sass
