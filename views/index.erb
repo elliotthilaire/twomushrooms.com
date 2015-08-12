@@ -7,7 +7,7 @@
     <div class="box">
       <div class="picture">
         <a href="/<%= photo.slug %>" >
-          <img src="<%= photo.image.thumb('300x200#').url %>" />
+          <img src="<%= photo.image.thumb('300x200#').url %>" alt="<%= photo.caption %>" />
         </a>
       </div>
     </div>
@@ -19,7 +19,7 @@
   <% @fadein_photos.each do |photo| %>
     <div class="picture picturelist">
       <a href="/<%= photo.slug %>" >
-          <img src="<%= photo.image.thumb('300x200#').url %>" />
+        <img src="<%= photo.image.thumb('300x200#').url %>" alt="<%= photo.caption %>" />
       </a>
     </div>
   <% end %>
