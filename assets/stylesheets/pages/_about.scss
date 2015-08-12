@@ -1,33 +1,33 @@
-/* About page */
-.about #anti-cap {
-  position:absolute;
-  left:-1000;
-  top:-1000;
-}
-.about img {
-  width:100%;
-}
-.about p {
-  font-size:1.8rem;
-  color:hsl(0,0%,70%);
-}
-.about h4 {
-  color:hsl(0,0%,50%);
-}
-.about .control-label {
-  color:hsl(0,0%,70%);
-}
-.about .control-group {
-  padding-top:10px;
-  padding-bottom:10px;
-}
-.about #message {
-  width:100%;
-}
-.about #email {
-  width:60%;
-}
-
-.fa {
-  margin-right:2rem;
+.about {
+  #anti-cap {
+    position:absolute;
+    left:-1000;
+    top:-1000;
+  }
+  img {
+    width:100%;
+  }
+  p {
+    font-size:1.8rem;
+    color:hsl(0,0%,70%);
+  }
+  h4 {
+    color:hsl(0,0%,50%);
+  }
+  .control-label {
+    color:hsl(0,0%,70%);
+  }
+  .control-group {
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+  #message {
+    width:100%;
+  }
+  #email {
+    width:60%;
+  }
+  .fa {
+    margin-right:2rem;
+  }
 }

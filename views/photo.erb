@@ -1,33 +1,30 @@
 
 <div class="vertical-container">
-    <div class="vertically-centered">
-        <div id="image-box" class="image-box">
-            <img id="image" src="<%= @photo.image.thumb('1200x900').watermark.url %>" alt="<%= @photo.caption %>" />
-        </div>
+  <div class="vertically-centered">
+    <div id="image-box" class="image-box">
+      <img id="image" src="<%= @photo.image.thumb('1200x900').watermark.url %>" alt="<%= @photo.caption %>" />
     </div>
+  </div>
 </div>
 
 <script>
 
 $(document).ready(function() {
+  $('img').addClass('collapse');
 
-    $('img').addClass('collapse');
-
-    $(".collapse").on('load', function(){
-     $(this).fadeIn().removeClass('collapse');
-    });
-
+  $(".collapse").on('load', function(){
+    $(this).fadeIn().removeClass('collapse');
+  });
 });
 
-
-  h = document.body.clientHeight;
-  document.getElementById("image").style.maxHeight=h-150+"px";
+h = document.body.clientHeight;
+document.getElementById("image").style.maxHeight=h-150+"px";
 
 window.onresize = function(event) {
   h = document.body.clientHeight;
   document.getElementById("image").style.maxHeight=h-150+"px";
-
 };
+
 </script>
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
