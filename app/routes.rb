@@ -12,7 +12,7 @@ class App < Sinatra::Base
       url: "http://twomushrooms.com#{request.path}",
       title: 'Two Mushrooms',
       description: 'Photography by Elliott Hilaire',
-      image: "http://twomushrooms.com/site-preview.png",
+      image: "http://twomushrooms.com/site-preview.jpg",
     }
     @twittercard = { type: 'summary_large_image' }
 
