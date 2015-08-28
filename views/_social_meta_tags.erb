@@ -1,0 +1,14 @@
+<% if @opengraph %>
+  <meta property="og:site_name" content="Two Mushrooms" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= @opengraph[:url] %>" />
+  <meta property="og:description" content="<%= @opengraph[:description] %>" />
+  <meta property="og:title" content="<%= @opengraph[:title] %>" />
+  <meta property="og:image" content="<%= @opengraph[:image] %>" />
+<% end %>
+
+<% if @twittercard %>
+  <meta name="twitter:card" content="<%= @twittercard[:type] %>" />
+  <meta name="twitter:site" content="@elliotthilaire" />
+  <meta name="twitter:creator" content="@elliotthilaire" />
+<% end %>
