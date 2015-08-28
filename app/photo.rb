@@ -24,11 +24,6 @@ class Photo
     @title = slug.gsub('-', ' ')
   end
 
-  # e.g. Photo of ant on blue flower
-  def caption
-    "Photo of #{title}"
-  end
-
   def date_taken
     EXIFR::JPEG.new(@pathname).date_time_original
   end
