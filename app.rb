@@ -15,7 +15,7 @@ require_relative 'app/redirects'
 require_relative 'dragonfly/initializer.rb'
 
 # Add to Sass load_path so @import works properly.
-Sass.load_paths << "assets/stylesheets"
+Sass.load_paths << 'assets/stylesheets'
 
 class App < Sinatra::Base
   set :logging, true

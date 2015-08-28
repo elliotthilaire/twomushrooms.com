@@ -1,7 +1,7 @@
 
 class App < Sinatra::Base
   get '/' do
-    cache_control :no_store # this page is randomly generated, don't cache it
+    cache_control :no_store
 
     photos = Photo.find_by_category('featured').shuffle
 
@@ -12,7 +12,7 @@ class App < Sinatra::Base
       url: "http://twomushrooms.com#{request.path}",
       title: 'Two Mushrooms',
       description: 'Photography by Elliott Hilaire',
-      image: "http://twomushrooms.com/site-preview.jpg",
+      image: 'http://twomushrooms.com/site-preview.jpg'
     }
     @twittercard = { type: 'summary_large_image' }
 
@@ -20,14 +20,13 @@ class App < Sinatra::Base
   end
 
   get '/gallery' do
-
     @photos = Photo.find_by_categories(%w(featured gallery)).sort
 
     @opengraph = {
       url: "http://twomushrooms.com#{request.path}",
       title: 'Two Mushrooms gallery',
       description: 'Photos by Elliott',
-      image: "http://twomushrooms.com/site-preview.png",
+      image: 'http://twomushrooms.com/site-preview.png'
     }
     @twittercard = { type: 'summary_large_image' }
 
@@ -39,7 +38,7 @@ class App < Sinatra::Base
       url: "http://twomushrooms.com#{request.path}",
       title: 'About',
       description: 'About Elliott',
-      image: "http://twomushrooms.com/site-preview.png",
+      image: 'http://twomushrooms.com/site-preview.png'
     }
     @twittercard = { type: 'summary' }
 
@@ -53,7 +52,7 @@ class App < Sinatra::Base
       url: "http://twomushrooms.com#{request.path}",
       title: @photo.title,
       description: 'Photo taken by Elliott Hilaire',
-      image: "http://twomushrooms.com#{@photo.image.thumb('1200x900').watermark.url}",
+      image: "http://twomushrooms.com#{@photo.image.thumb('1200x900').watermark.url}"
     }
     @twittercard = { type: 'summary_large_image' }
 
