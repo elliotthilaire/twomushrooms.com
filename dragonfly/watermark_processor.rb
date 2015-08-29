@@ -2,7 +2,7 @@
 # Adds a watermark to the image
 class WatermarkProcessor
   def call(content, *_args)
-    content.process! :convert, "'public/watermark.png' -gravity southeast -composite"
+    content.process! :convert, "'assets/images/watermark.png' -gravity southeast -composite"
   end
 
   # attrs is Job#url_attributes, which is an OpenStruct-like object
