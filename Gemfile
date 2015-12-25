@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 
 gem 'sinatra'
 gem 'sinatra-partial', require: 'sinatra/partial'
-gem 'sinatra-assetpack'
+gem 'sinatra-assetpack', require: 'sinatra/assetpack'
 
 gem 'sass', require: 'sass'
 gem 'exifr'          # read date_taken from image exif data
