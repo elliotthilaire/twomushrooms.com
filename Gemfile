@@ -22,14 +22,4 @@ group :development do
   gem 'pry'
 end
 
-# previously used gems
-# gem 'sinatra-thumbnails'		  # replaced by dragonfly
-# gem 'sinatra-asset-pipeline'	  # replaced by sinatra-assetpack
-# gem 'chronic'                   # natual language formatting of dates
-# gem 'json'
-# gem 'activesupport'
-# gem 'guard'
-# gem 'rb-readline'
-# gem 'uglifier'
-
 ruby '2.1.2'
