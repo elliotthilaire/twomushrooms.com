@@ -1,4 +1,3 @@
-
 class App < Sinatra::Base
   # redirect trailing slashes
   get %r{(.+)/$} do |r|

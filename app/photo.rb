@@ -16,14 +16,14 @@ class Photo
   end
 
   def title    # e.g. ant on blue flower
-    @title = slug.gsub('-', ' ')
+    @title = slug.tr('-', ' ')
   end
 
   def date_taken
     EXIFR::JPEG.new(@pathname).date_time_original
   end
 
-  def image   # return a dragonfly object for image manipulation
+  def image # return a dragonfly object for image manipulation
     Dragonfly.app.fetch_file(@pathname)
   end
 

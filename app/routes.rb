@@ -1,5 +1,4 @@
 class App < Sinatra::Base
-
   get '/' do
     cache_control :no_store
 

@@ -53,8 +53,8 @@ class App < Sinatra::Base
       '/css/main.css'
     ]
 
-    js_compression :jsmin    # :jsmin | :yui | :closure | :uglify
-    css_compression :sass   # :simple | :sass | :yui | :sqwish
+    js_compression :jsmin # :jsmin | :yui | :closure | :uglify
+    css_compression :sass # :simple | :sass | :yui | :sqwish
 
     # compile assets when app launched (default is on first request)
     prebuild true
