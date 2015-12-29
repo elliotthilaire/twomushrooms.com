@@ -16,7 +16,7 @@ class Photo
   end
 
   def title    # e.g. ant on blue flower
-    @title = slug.tr('-', ' ')
+    slug.tr('-', ' ')
   end
 
   def date_taken
