@@ -3,7 +3,7 @@ class App < Sinatra::Base
   get '/' do
     cache_control :no_store
 
-    photos = Photo.find_by_category('featured').shuffle
+    photos = PhotoCollection.featured
 
     @photos = photos[0..11]
     @fadein_photos = photos[12..-1]
@@ -20,7 +20,7 @@ class App < Sinatra::Base
   end
 
   get '/gallery' do
-    @photos = Photo.find_by_categories(%w(featured gallery)).sort
+    @photos = PhotoCollection.gallery
 
     @opengraph = {
       url: "http://twomushrooms.com#{request.path}",
@@ -46,7 +46,7 @@ class App < Sinatra::Base
   end
 
   get '/:photo' do
-    @photo = Photo.find(params[:photo]) || fail(Sinatra::NotFound)
+    @photo = PhotoCollection.find(params[:photo]) || fail(Sinatra::NotFound)
 
     @opengraph = {
       url: "http://twomushrooms.com#{request.path}",

@@ -10,6 +10,7 @@ require 'dotenv'
 Dotenv.load
 
 require_relative 'app/photo'
+require_relative 'app/photo_collection'
 require_relative 'app/routes'
 require_relative 'app/redirects'
 require_relative 'dragonfly/initializer.rb'
