@@ -1,26 +1,21 @@
 require 'exifr'
 
-
 class Photo
-
   attr_accessor :pathname
 
   def initialize(pathname)
     @pathname = pathname
   end
 
-  # e.g. ant-on-blue-flower
-  def slug
+  def slug     # e.g. ant-on-blue-flower
     File.basename(@pathname, '.*')
   end
 
-  # e.g. ant-on-blue-flower.jpg
-  def filename
+  def filename # e.g. ant-on-blue-flower.jpg
     File.basename(@pathname)
   end
 
-  # e.g. ant on blue flower
-  def title
+  def title    # e.g. ant on blue flower
     @title = slug.gsub('-', ' ')
   end
 
@@ -28,14 +23,11 @@ class Photo
     EXIFR::JPEG.new(@pathname).date_time_original
   end
 
-  # return a dragonfly object for image manipulation
-  def image
+  def image   # return a dragonfly object for image manipulation
     Dragonfly.app.fetch_file(@pathname)
   end
 
-  # order photos by the date they were taken
   def <=>(other)
     other.date_taken <=> date_taken
   end
-
 end
