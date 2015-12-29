@@ -22,7 +22,6 @@ class App < Sinatra::Base
 
   get '/:photo' do
     @photo = PhotoCollection.find(params[:photo]) || fail(Sinatra::NotFound)
-
     erb :photo
   end
 end
