@@ -15,13 +15,11 @@
     <!-- this needs to stay near the top of the file until js is moved out of html -->
     <%= js :app %>
 
-    <div id="top"></div>
     <div class="container">
       <%= partial '_nav' %>
       <%= yield %>
     </div>
 
     <%= partial '_tracking_tags' %>
-
   </body>
 </html>
