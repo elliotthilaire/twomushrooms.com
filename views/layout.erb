@@ -9,6 +9,7 @@
     <%= css :app, :media => 'screen' %>
 
     <%= partial '_social_meta_tags' %>
+    <%= partial '_tracking_tags' %>
   </head>
   <body>
     <!-- load js from sinatra-assetpack -->
@@ -19,7 +20,5 @@
       <%= partial '_nav' %>
       <%= yield %>
     </div>
-
-    <%= partial '_tracking_tags' %>
   </body>
 </html>
