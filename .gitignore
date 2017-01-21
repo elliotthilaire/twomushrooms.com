@@ -8,3 +8,4 @@ log/
 config/newrelic.yml
 .sass-cache
 tmp/
+.envrc
