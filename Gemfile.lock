@@ -101,7 +101,6 @@ DEPENDENCIES
   guard-livereload
   guard-shotgun
   newrelic_rpm
-  pry
   rack-cache
   rb-fsevent
   sass
