@@ -10,7 +10,7 @@ gem 'sass', require: 'sass'
 gem 'exifr'          # read date_taken from image exif data
 gem 'dragonfly'      # on the fly image processing for watermarks and thumbnails
 
-gem 'thin'
+gem 'puma'
 gem 'dotenv'
 gem 'rack-cache'
 gem 'newrelic_rpm'
