@@ -2,11 +2,11 @@ source 'http://rubygems.org'
 ruby '2.3.3'
 
 gem 'sinatra'
-gem 'sinatra-partial', require: 'sinatra/partial'
-gem 'sinatra-assetpack', require: 'sinatra/assetpack'
+gem 'sinatra-partial'
+gem 'sinatra-assetpack'
 
 gem 'aws-sdk'
-gem 'sass', require: 'sass'
+gem 'sass'
 gem 'exifr'          # read date_taken from image exif data
 gem 'dragonfly'      # on the fly image processing for watermarks and thumbnails
 
@@ -16,7 +16,7 @@ gem 'newrelic_rpm'
 
 group :development do
   gem 'guard-shotgun'
-  gem 'guard-livereload', require: false
+  gem 'guard-livereload'
   gem 'shotgun'
   gem 'rb-fsevent' # effecient file system polling for mac, used by newrelic
 end
