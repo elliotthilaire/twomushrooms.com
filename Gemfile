@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby '2.3.3'
 
 gem 'sinatra'
 gem 'sinatra-partial', require: 'sinatra/partial'
@@ -21,4 +22,3 @@ group :development do
   gem 'rb-fsevent' # effecient file system polling for mac, used by newrelic
 end
 
-ruby '2.1.2'
