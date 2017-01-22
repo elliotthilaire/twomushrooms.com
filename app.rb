@@ -5,10 +5,6 @@ require 'sinatra/partial'
 require 'sass'
 require 'dragonfly'
 
-# load environment variables from file
-require 'dotenv'
-Dotenv.load
-
 require_relative 'app/photo'
 require_relative 'app/photo_collection'
 require_relative 'app/routes'

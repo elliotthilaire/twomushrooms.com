@@ -1,7 +1,3 @@
-
-require 'dotenv'
-Dotenv.load
-
 require './app.rb'
 
 # New Relic Monitoring
