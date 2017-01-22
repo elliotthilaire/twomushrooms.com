@@ -1,10 +1,11 @@
 require 'exifr'
 
 class Photo
-  attr_accessor :pathname
+  attr_accessor :pathname, :category
 
-  def initialize(pathname)
+  def initialize(pathname:, category:)
     @pathname = pathname
+    @category = category
   end
 
   def slug     # e.g. ant-on-blue-flower

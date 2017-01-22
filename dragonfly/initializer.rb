@@ -14,6 +14,7 @@ Dragonfly.app.configure do
   url_format '/media/:job/:sha/:name'
 
   fetch_file_whitelist [
+    /tmp/,
     /content/
   ]
 
