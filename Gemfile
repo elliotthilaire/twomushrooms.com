@@ -15,8 +15,6 @@ gem 'rack-cache'
 gem 'newrelic_rpm'
 
 group :development do
-  gem 'guard-shotgun'
-  gem 'guard-livereload'
   gem 'shotgun'
   gem 'rb-fsevent' # effecient file system polling for mac, used by newrelic
 end
