@@ -9,25 +9,24 @@ This is the code behind http://twomushrooms.com, a project to share some of the 
 
 ## Deployment
 
-  1. bundle install
-  2. Put images in ./content/featured, gallery or hidden
-  3. Run rake assets:precompile
-  4. Copy newrelic.yml file from New Relic into config/newrelic.yml
-  5. Launch it.
+  ```
+  bundle install
+  bundle exec rackup
+
+  ./build.sh
+  ./sync-with-s3.sh
+  ```
 
 ## To do list
 
  - Refactor JS out of index page and turn it into a reusable module
  - Add next and previous buttons when viewing images in the gallery
- - Create a nicer watermark
- - Move images out of ./content/ folder and onto S3 or similar.
- - Move site over to static site generator such as middleman.
 
 ## Contribution
 
 I would love for you to review my code and help me improve it.
 Feel free to get in touch or fork and make pull requests.
 
-## License 
+## License
 
 MIT
