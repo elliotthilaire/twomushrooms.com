@@ -10,16 +10,16 @@ class App < Sinatra::Base
     erb :index
   end
 
-  get '/gallery' do
+  get '/gallery/' do
     @photos = PhotoCollection.gallery
     erb :gallery
   end
 
-  get '/about' do
+  get '/about/' do
     erb :about
   end
 
-  get '/:photo' do
+  get '/:photo/' do
     @photo = PhotoCollection.find(params[:photo]) || fail(Sinatra::NotFound)
     erb :photo
   end

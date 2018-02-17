@@ -9,3 +9,5 @@ config/newrelic.yml
 .sass-cache
 tmp/
 .envrc
+_build/
+node_modules/

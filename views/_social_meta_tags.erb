@@ -1,14 +1,14 @@
 <meta property="og:site_name" content="Two Mushrooms" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="<%= "http://twomushrooms.com#{request.path}" %>" />
+<meta property="og:url" content="<%= "https://twomushrooms.com#{request.path}" %>" />
 
 <% if @photo %>
   <meta property="og:title" content="<%= @photo.title %>" />
-  <meta property="og:image"content="http://twomushrooms.com/<%= @photo.image.thumb('1200x900').watermark.url %>" />
+  <meta property="og:image"content="https://twomushrooms.com/<%= @photo.image.thumb('1200x900').watermark.url %>" />
   <meta property="og:description" content="Photo taken by Elliott Hilaire" />
 <% else %>
   <meta property="og:title" content="Two Mushrooms" />
-  <meta property="og:image" content="http://twomushrooms.com/site-preview.jpg" />
+  <meta property="og:image" content="https://twomushrooms.com/site-preview.jpg" />
   <meta property="og:description" content="Photos by Elliott" />
 <% end %>
 
