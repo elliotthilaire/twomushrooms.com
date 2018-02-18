@@ -1,7 +1,5 @@
 class App < Sinatra::Base
   get '/' do
-    cache_control :no_store
-
     photos = PhotoCollection.featured
 
     @photos = photos[0..11]
