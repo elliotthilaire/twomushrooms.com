@@ -11,7 +11,6 @@ gem 'exifr'          # read date_taken from image exif data
 gem 'dragonfly'      # on the fly image processing for watermarks and thumbnails
 
 gem 'puma'
-gem 'rack-cache'
 
 group :development do
   gem 'shotgun'
