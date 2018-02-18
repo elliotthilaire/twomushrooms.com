@@ -1,4 +1,4 @@
-require 'exifr'
+require 'exifr/jpeg'
 
 class Photo
   attr_accessor :pathname, :category
