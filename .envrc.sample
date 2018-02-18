@@ -3,6 +3,4 @@ export AWS_SECRET_ACCESS_KEY=
 export AWS_REGION=
 export S3_BUCKET=
 
-export NEW_RELIC_LICENSE_KEY=
-
 export DRAGONFLY_SECRET=randomstring

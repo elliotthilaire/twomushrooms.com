@@ -12,7 +12,6 @@ gem 'dragonfly'      # on the fly image processing for watermarks and thumbnails
 
 gem 'puma'
 gem 'rack-cache'
-gem 'newrelic_rpm'
 
 group :development do
   gem 'shotgun'

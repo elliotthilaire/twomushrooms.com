@@ -5,7 +5,6 @@ content/
 public/thumbnails/
 public/assets/
 log/
-config/newrelic.yml
 .sass-cache
 tmp/
 .envrc
