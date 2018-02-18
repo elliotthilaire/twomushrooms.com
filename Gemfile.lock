@@ -3,14 +3,19 @@ GEM
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    aws-sdk (2.7.3)
-      aws-sdk-resources (= 2.7.3)
-    aws-sdk-core (2.7.3)
+    aws-partitions (1.63.0)
+    aws-sdk-core (3.15.0)
+      aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.7.3)
-      aws-sdk-core (= 2.7.3)
-    aws-sigv4 (1.0.0)
+    aws-sdk-kms (1.5.0)
+      aws-sdk-core (~> 3)
+      aws-sigv4 (~> 1.0)
+    aws-sdk-s3 (1.8.1)
+      aws-sdk-core (~> 3)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.0)
+    aws-sigv4 (1.0.2)
     dragonfly (1.1.4)
       addressable (~> 2.3)
       multi_json (~> 1.0)
@@ -54,7 +59,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
+  aws-sdk-s3
   dragonfly
   exifr
   puma
