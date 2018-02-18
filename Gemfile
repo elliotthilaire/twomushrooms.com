@@ -3,7 +3,6 @@ ruby '2.3.3'
 
 gem 'sinatra'
 gem 'sinatra-partial'
-gem 'sinatra-assetpack'
 
 gem 'aws-sdk-s3'
 gem 'sass'

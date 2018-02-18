@@ -14,16 +14,14 @@
 			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 			  crossorigin="anonymous"></script>
 
-    <!-- load css from sinatra-assetpack -->
-    <%= css :app, :media => 'screen' %>
+    <link rel="stylesheet" href="/stylesheets/app.css" media="screen">
 
     <%= partial '_social_meta_tags' %>
     <%= partial '_tracking_tags' %>
   </head>
   <body>
-    <!-- load js from sinatra-assetpack -->
     <!-- this needs to stay near the top of the file until js is moved out of html -->
-    <%= js :app %>
+    <script src="/javascripts/application.js"></script>
 
     <div class="container">
       <%= partial '_nav' %>
