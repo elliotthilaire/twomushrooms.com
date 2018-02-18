@@ -36,16 +36,12 @@ class App < Sinatra::Base
     serve '/js',     from: 'assets/javascripts'
     serve '/css',    from: 'assets/stylesheets'
     serve '/images', from: 'assets/images'
-    serve '/bower_components', from: 'assets/bower_components'
 
     js :app, '/js/app.js', [
-      '/bower_components/jquery/dist/jquery.min.js',
-      '/bower_components/bootstrap/dist/js/bootstrap.min.js',
       '/js/*.js'
     ]
 
     css :app, '/css/app.css', [
-      '/bower_components/bootstrap/dist/css/bootstrap.css',
       '/css/main.css'
     ]
 
