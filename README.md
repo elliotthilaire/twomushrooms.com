@@ -11,10 +11,14 @@ This is the code behind http://twomushrooms.com, a project to share some of the 
 
   ```
   bundle install
+  yarn install
+
+  node_modules/brunch/bin/brunch build
+
   bundle exec rackup
 
-  ./build.sh
-  ./sync-with-s3.sh
+  bin/build.sh
+  bin/deploy.sh
   ```
 
 ## To do list
