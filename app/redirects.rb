@@ -1,8 +1,8 @@
 class App < Sinatra::Base
   # redirect trailing slashes
-  get %r{(.+)/$} do |r|
-    redirect r
-  end
+  # get %r{(.+)/$} do |r|
+  #   redirect r
+  # end
 
   not_found do
     status 404
