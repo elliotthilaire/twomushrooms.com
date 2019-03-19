@@ -2,7 +2,7 @@ class App < Sinatra::Base
   get '/' do
     photos = PhotoCollection.featured
 
-    @photos = photos[0..11]
+    @photos = photos[0..11].shuffle
     @fadein_photos = photos[12..-1]
 
     erb :index
